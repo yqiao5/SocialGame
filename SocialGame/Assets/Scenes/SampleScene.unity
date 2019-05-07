@@ -3303,7 +3303,7 @@ GameObject:
   - component: {fileID: 2103779641}
   - component: {fileID: 2103779643}
   - component: {fileID: 2103779642}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Insta_content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
