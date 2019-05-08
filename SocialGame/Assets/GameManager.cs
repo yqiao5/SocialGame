@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InstaNotification.Play();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Notification");
     }
 
     // Update is called once per frame
@@ -85,6 +86,7 @@ public class GameManager : MonoBehaviour
             BackTutor.SetActive(false);
             InstaBackFlag = false;
             EmailNotification.Play();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Notification");
         }
         if(!InstaBackFlag && FirstEmailFlag)
         {
