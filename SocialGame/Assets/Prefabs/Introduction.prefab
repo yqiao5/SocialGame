@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8450792214876993036}
   - component: {fileID: 8630203593901674746}
   m_Layer: 5
-  m_Name: UIParticleEffect3
+  m_Name: Introduction 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8526795058504317280}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000048, y: 1.0000048, z: 1.0000048}
   m_Children: []
@@ -71,12 +71,12 @@ MonoBehaviour:
   EmissionAngle: 0
   ColorOverLifetime:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 0.9973797, g: 1, b: 0.7877358, a: 0}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 0.9274073, g: 1, b: 0.36320752, a: 0}
-    key4: {r: 1, g: 1, b: 1, a: 0}
-    key5: {r: 1, g: 1, b: 1, a: 0}
+    key0: {r: 0.6415094, g: 0.361961, b: 0, a: 1}
+    key1: {r: 0.9056604, g: 0.5732028, b: 0, a: 0}
+    key2: {r: 0.990566, g: 0.8209054, b: 0.21960661, a: 0}
+    key3: {r: 1, g: 0.77274936, b: 0.1273585, a: 0}
+    key4: {r: 1, g: 0.7632324, b: 0.21226418, a: 0}
+    key5: {r: 1, g: 0.83321464, b: 0.19339621, a: 0}
     key6: {r: 1, g: 0, b: 0.72413826, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
