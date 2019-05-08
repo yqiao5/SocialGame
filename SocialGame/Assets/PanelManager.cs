@@ -56,6 +56,7 @@ public class PanelManager : MonoBehaviour
                 if(limit > -1790)
                 {
                     limit = -1790;
+                    GameManager.Instance.SlideInstaContent();
                 }else if (limit < -4310)
                 {
                     limit = -4310;
@@ -70,6 +71,7 @@ public class PanelManager : MonoBehaviour
                 if (limit > -3150)
                 {
                     limit = -3150;
+                    GameManager.Instance.SlideInstaMain();
                 }
                 else if (limit < -4300)
                 {
@@ -116,6 +118,7 @@ public class PanelManager : MonoBehaviour
         Insta_bg.SetActive(true);
         Insta_Content.SetActive(true);
         tempPanel = Panel.InstaContent;
+        GameManager.Instance.ClickInsta();
     }
 
     public void BackButtonClick()
@@ -128,11 +131,13 @@ public class PanelManager : MonoBehaviour
                 Insta_bg.SetActive(false);
                 Insta_Content.SetActive(false);
                 tempPanel = Panel.Main;
+                GameManager.Instance.ClickBack();
                 break;
             case Panel.InstaMain:
                 Insta_bg.SetActive(false);
                 Insta_Content_Main.SetActive(false);
                 tempPanel = Panel.Main;
+                GameManager.Instance.ClickBack();
                 break;
 
         }
@@ -146,6 +151,7 @@ public class PanelManager : MonoBehaviour
             Insta_bg.SetActive(true);
             Insta_Content.SetActive(false);
             tempPanel = Panel.InstaMain;
+            GameManager.Instance.ClickInstaMain();
         }
     }
 
