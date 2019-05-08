@@ -20,11 +20,13 @@ public class PanelManager : MonoBehaviour
     enum Panel
     {
         Main,
-        Insta
+        InstaContent,
+        InstaMain
     }
 
     public GameObject Insta_bg;
     public GameObject Insta_Content;
+    public GameObject Insta_Content_Main;
     private Panel tempPanel = Panel.Main;
     //private Vector2 MouseUpPosition;
     //private Vector2 MouseDownPosition;
@@ -47,7 +49,7 @@ public class PanelManager : MonoBehaviour
             float dis = MouseSecondPosition.y - MouseFirstPosition.y;
             //keyUpFlag = false;
             //Debug.Log("dis: " + dis);
-            if (tempPanel == Panel.Insta)
+            if (tempPanel == Panel.InstaContent)
             {
                 Vector3 pp = Insta_Content.transform.position;
                 float limit = pp.y + dis;
@@ -61,6 +63,20 @@ public class PanelManager : MonoBehaviour
                 Insta_Content.transform.position = new Vector3(pp.x, limit, pp.z);
                 //Debug.Log("Temp Y: " + Insta_Content.transform.position.y);
             }
+            if(tempPanel == Panel.InstaMain)
+            {
+                Vector3 pp = Insta_Content_Main.transform.position;
+                float limit = pp.y + dis;
+                if (limit > -3150)
+                {
+                    limit = -3150;
+                }
+                else if (limit < -4300)
+                {
+                    limit = -4300;
+                }
+                Insta_Content_Main.transform.position = new Vector3(pp.x, limit, pp.z);
+            }
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -69,10 +85,10 @@ public class PanelManager : MonoBehaviour
             //MouseDownPosition = Input.mousePosition;
             MouseFirstPosition = Input.mousePosition;
             MouseSecondPosition = Input.mousePosition;
-            if (tempPanel == Panel.Insta)
-            {
-                InstaPositionOnDown = Insta_Content.transform.position;
-            }            
+            //if (tempPanel == Panel.Insta)
+            //{
+            //    InstaPositionOnDown = Insta_Content.transform.position;
+            //}            
             keyDownFlag = true;
         }
 
@@ -99,7 +115,7 @@ public class PanelManager : MonoBehaviour
     {
         Insta_bg.SetActive(true);
         Insta_Content.SetActive(true);
-        tempPanel = Panel.Insta;
+        tempPanel = Panel.InstaContent;
     }
 
     public void BackButtonClick()
@@ -108,12 +124,39 @@ public class PanelManager : MonoBehaviour
         {
             case Panel.Main:
                 break;
-            case Panel.Insta:
+            case Panel.InstaContent:
                 Insta_bg.SetActive(false);
                 Insta_Content.SetActive(false);
                 tempPanel = Panel.Main;
                 break;
-            
+            case Panel.InstaMain:
+                Insta_bg.SetActive(false);
+                Insta_Content_Main.SetActive(false);
+                tempPanel = Panel.Main;
+                break;
+
+        }
+    }
+
+    public void InstaMainButtonClick()
+    {
+        if(tempPanel == Panel.InstaContent)
+        {
+            Insta_Content_Main.SetActive(true);
+            Insta_bg.SetActive(true);
+            Insta_Content.SetActive(false);
+            tempPanel = Panel.InstaMain;
+        }
+    }
+
+    public void InstaContentButtonClick()
+    {
+        if (tempPanel == Panel.InstaMain)
+        {
+            Insta_Content_Main.SetActive(false);
+            Insta_bg.SetActive(true);
+            Insta_Content.SetActive(true);
+            tempPanel = Panel.InstaContent;
         }
     }
 
@@ -132,6 +175,6 @@ public class PanelManager : MonoBehaviour
     //        keyUpFlag = true;
     //        keyDownFlag = false;
     //    }
-        
+
     //}
 }
