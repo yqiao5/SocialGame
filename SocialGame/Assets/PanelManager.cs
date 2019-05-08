@@ -21,12 +21,16 @@ public class PanelManager : MonoBehaviour
     {
         Main,
         InstaContent,
-        InstaMain
+        InstaMain,
+        EmailContent,
+        EmailContentGDC
     }
 
     public GameObject Insta_bg;
     public GameObject Insta_Content;
     public GameObject Insta_Content_Main;
+    public GameObject Email_Content;
+    public GameObject Email_Content_GDC;
     private Panel tempPanel = Panel.Main;
     //private Vector2 MouseUpPosition;
     //private Vector2 MouseDownPosition;
@@ -121,6 +125,22 @@ public class PanelManager : MonoBehaviour
         GameManager.Instance.ClickInsta();
     }
 
+    public void ShowEmail()
+    {
+        Email_Content.SetActive(true);
+        //Insta_Content.SetActive(true);
+        tempPanel = Panel.EmailContent;
+        GameManager.Instance.ClickEmail();
+    }
+
+    public void ShowEmailGDC()
+    {
+        Email_Content_GDC.SetActive(true);
+        //Insta_Content.SetActive(true);
+        tempPanel = Panel.EmailContentGDC;
+        GameManager.Instance.ClickGDCEmail();
+    }
+
     public void BackButtonClick()
     {
         switch (tempPanel)
@@ -136,6 +156,16 @@ public class PanelManager : MonoBehaviour
             case Panel.InstaMain:
                 Insta_bg.SetActive(false);
                 Insta_Content_Main.SetActive(false);
+                tempPanel = Panel.Main;
+                GameManager.Instance.ClickBack();
+                break;
+            case Panel.EmailContentGDC:
+                Email_Content_GDC.SetActive(false);
+                tempPanel = Panel.EmailContent;
+                //GameManager.Instance.ClickBack();
+                break;
+            case Panel.EmailContent:
+                Email_Content.SetActive(false);
                 tempPanel = Panel.Main;
                 GameManager.Instance.ClickBack();
                 break;

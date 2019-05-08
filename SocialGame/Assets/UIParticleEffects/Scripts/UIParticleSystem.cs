@@ -117,6 +117,34 @@ public class UIParticleSystem : MonoBehaviour {
             ParticlePool[i].transform.localPosition = Vector3.zero;
             ParticlePool[i].sprite = Particle;
         }
+        //if (transform.childCount == 0)
+        //{            
+        //    for (int i = 0; i < ParticlePool.Length; i++)
+        //    {
+
+        //        var gameObject = new GameObject("Particle");
+        //        gameObject.transform.SetParent(transform);
+        //        gameObject.SetActive(false);
+        //        ParticlePool[i] = gameObject.AddComponent<Image>();
+        //        ParticlePool[i].transform.localRotation = Quaternion.identity;
+        //        ParticlePool[i].transform.localPosition = Vector3.zero;
+        //        ParticlePool[i].sprite = Particle;
+        //    }
+        //}
+        //else
+        //{
+        //    //int i = 0;
+        //    //foreach (Transform item in transform)
+        //    //{
+        //    //    item.gameObject.SetActive(false);
+        //    //    ParticlePool[i] = item.gameObject.AddComponent<Image>();
+        //    //    i++;
+        //    //    //Debug.Log(item);
+        //    //    //GetAll(item);
+        //    //}
+
+        //}
+        
     }
 
     // Update is called once per frame
@@ -126,8 +154,20 @@ public class UIParticleSystem : MonoBehaviour {
 
     public void Play()
     {
+        //Init();
         IsPlaying = true;
         StartCoroutine(CoPlay());
+        //Debug.Log("Pool Count: " + ParticlePool.Length);
+    }
+
+    public void Restart()
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+        Init();
+        Play();
     }
 
     private IEnumerator CoPlay()
