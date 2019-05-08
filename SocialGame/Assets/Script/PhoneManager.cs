@@ -33,7 +33,7 @@ public class PhoneManager : MonoBehaviour
             {
                 tim3 = Time.time;
             }
-            if (Time.time - tim3 > 1.2)
+            if (Time.time - tim3 > 1.65)
             {
                 m = new Vector3(this.transform.position.x, this.transform.position.y + 1.4f, this.transform.position.z);
                 tim3 = Time.time;
@@ -42,7 +42,7 @@ public class PhoneManager : MonoBehaviour
             }
             this.transform.position = Vector3.MoveTowards(this.transform.position, m, 5 * Time.deltaTime);
         }
-        if (Time.time - curtime > 1.2&&flag<=14)
+        if (Time.time - curtime > 1.65&&flag<=14)
         {
             dias[flag].SetActive(true);
             flag++;
@@ -53,7 +53,7 @@ public class PhoneManager : MonoBehaviour
                 tim2 = Time.time;
             }
         }
-        if (Time.time - curtime > 1.2 && flag >= 14&&flag<=16)
+        if (Time.time - curtime > 1.65 && flag >= 14&&flag<=16)
         {
             flag++;
             m = new Vector3(this.transform.position.x, this.transform.position.y + 1.35f, this.transform.position.z);
@@ -63,7 +63,7 @@ public class PhoneManager : MonoBehaviour
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, m, 5 * Time.deltaTime);
         }
-        if (Time.time - tim2 > 1.2 && flag <= 14&&tim2!=0)
+        if (Time.time - tim2 > 1.65 && flag <= 14&&tim2!=0)
         {
             dias[dan].SetActive(false);
             dan++;

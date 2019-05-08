@@ -29,6 +29,7 @@ public class PanelManager : MonoBehaviour
         EmailContentGDC
     }
     FMOD.Studio.EventInstance BGM;
+    FMOD.Studio.EventInstance Ringtone;
     public GameObject Insta_bg;
     public GameObject Insta_Content;
     public GameObject Insta_Content_Main;
@@ -49,6 +50,7 @@ public class PanelManager : MonoBehaviour
     void Start()
     {
         BGM = FMODUnity.RuntimeManager.CreateInstance("event:/BGM");
+        Ringtone = FMODUnity.RuntimeManager.CreateInstance("event:/Ringtone");
         BGM.start();
     }
 
@@ -131,6 +133,8 @@ public class PanelManager : MonoBehaviour
             {
                 CallingFlag = false;
                 Calling_Panel.SetActive(true);
+                BGM.setParameterByName("BGM", 0.5f);
+                
             }
         }
     }
@@ -241,5 +245,6 @@ public class PanelManager : MonoBehaviour
     public void ReceiveCallButtonClick()
     {
         SceneManager.LoadScene("CallScene");
+        BGM.setParameterByName("BGM", 0.8f);
     }
 }
