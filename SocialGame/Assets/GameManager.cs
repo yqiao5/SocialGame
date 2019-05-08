@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private bool FirstEmailFlag = true;
     private bool GDCEmailFlag = true;
     private bool EmailBackFlag = true;
+    
 
     public GameObject InstaTutor;
     public GameObject InstaMainTutor;
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
         {
             BackTutor.SetActive(false);
             EmailBackFlag = false;
+            PanelManager.Instance.EmailTutorEnd();
         }
         
     }

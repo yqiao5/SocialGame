@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PanelManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class PanelManager : MonoBehaviour
     public GameObject Insta_Content_Main;
     public GameObject Email_Content;
     public GameObject Email_Content_GDC;
+    public GameObject Calling_Panel;
     private Panel tempPanel = Panel.Main;
     //private Vector2 MouseUpPosition;
     //private Vector2 MouseDownPosition;
@@ -41,6 +43,8 @@ public class PanelManager : MonoBehaviour
     private bool keyDownFlag = false;
     private bool keyUpFlag = false;
     private Vector3 InstaPositionOnDown;
+    private bool CallingFlag = false;
+    private float CallingTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -118,6 +122,16 @@ public class PanelManager : MonoBehaviour
                 keyDownFlag = false;
             }
         }
+
+        if (CallingFlag)
+        {
+            CallingTimer += Time.deltaTime;
+            if (CallingTimer > 3)
+            {
+                CallingFlag = false;
+                Calling_Panel.SetActive(true);
+            }
+        }
     }
 
     public void ShowInsta()
@@ -171,6 +185,7 @@ public class PanelManager : MonoBehaviour
                 Email_Content.SetActive(false);
                 tempPanel = Panel.Main;
                 GameManager.Instance.ClickBack();
+
                 break;
 
         }
@@ -216,4 +231,13 @@ public class PanelManager : MonoBehaviour
     //    }
 
     //}
+    public void EmailTutorEnd()
+    {
+        CallingFlag = true;
+    }
+
+    public void ReceiveCallButtonClick()
+    {
+        SceneManager.LoadScene("CallScene");
+    }
 }
