@@ -41,7 +41,7 @@ public class Display1 : MonoBehaviour
             {
                 curtime = Time.time;
             }
-            if (Time.time - curtime > 1.2&&m<=3)
+            if (Time.time - curtime > 1.65&&m<=3)
             {
                 dias[m].SetActive(true);
                 m++;
