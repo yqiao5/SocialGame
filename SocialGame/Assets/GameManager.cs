@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject GDCEmailTutor;
     public Animation InstaNotification;
     public Animation EmailNotification;
+    public GameObject SlideNotification;
     //public GameObject EmailBackTutor;
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         {
             InstaTutor.SetActive(false);
             FirstInstaFlag = false;
+            SlideNotification.SetActive(true);
         }
     }
 
@@ -66,6 +68,8 @@ public class GameManager : MonoBehaviour
     {
         if (InstaMianFlag)
         {
+            SlideNotification.SetActive(false);
+            SlideNotification.SetActive(true);
             InstaMainTutor.SetActive(false);
             InstaMianFlag = false;
         }
