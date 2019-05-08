@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PanelManager : MonoBehaviour
 {
     private static PanelManager _instance;
-    FMOD.Studio.EventInstance BGM;
+    
 
     public static PanelManager Instance
     {
@@ -28,7 +28,7 @@ public class PanelManager : MonoBehaviour
         EmailContent,
         EmailContentGDC
     }
-
+    FMOD.Studio.EventInstance BGM;
     public GameObject Insta_bg;
     public GameObject Insta_Content;
     public GameObject Insta_Content_Main;
@@ -126,6 +126,7 @@ public class PanelManager : MonoBehaviour
         if (CallingFlag)
         {
             CallingTimer += Time.deltaTime;
+            Debug.Log("In Calling");
             if (CallingTimer > 3)
             {
                 CallingFlag = false;
@@ -233,6 +234,7 @@ public class PanelManager : MonoBehaviour
     //}
     public void EmailTutorEnd()
     {
+        Debug.Log("In tutor end");
         CallingFlag = true;
     }
 
