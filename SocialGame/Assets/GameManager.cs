@@ -29,11 +29,13 @@ public class GameManager : MonoBehaviour
     public GameObject BackTutor;
     public GameObject EmailTutor;
     public GameObject GDCEmailTutor;
+    public Animation InstaNotification;
+    public Animation EmailNotification;
     //public GameObject EmailBackTutor;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InstaNotification.Play();
     }
 
     // Update is called once per frame
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
         {
             BackTutor.SetActive(false);
             InstaBackFlag = false;
+            EmailNotification.Play();
         }
         if(!InstaBackFlag && FirstEmailFlag)
         {
