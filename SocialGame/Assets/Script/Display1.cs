@@ -27,13 +27,13 @@ public class Display1 : MonoBehaviour
     {
         if (start == 0&&this.name=="way1")
         {
-            this.transform.position = new Vector3(0, -4.7f, -1.9f);
-            k = -4.7f;
+            this.transform.position = new Vector3(0, -3.83f, -1.9f);
+            k = -3.83f;
         }
         if(start == 0 && this.name == "way2")
         {
-            this.transform.position = new Vector3(0, -7.27f, -1.9f);
-            k = -7.27f;
+            this.transform.position = new Vector3(0, -6.35f, -1.9f);
+            k = -6.35f;
         }
         if (start == 1)
         {
