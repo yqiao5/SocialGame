@@ -12,9 +12,11 @@ public class Display1 : MonoBehaviour
     public float curtime;
     private int m=0;
     private Vector3 a;
+    public int ch1;
+    private float atime;
     void Start()
     {
-        for (int i = 0; i <= 3; i++)
+        for (int i = 0; i <= 5; i++)
         {
             dias[i].SetActive(false);
         }
@@ -25,6 +27,20 @@ public class Display1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ch1 == 1)
+        {
+            if (atime == 0)
+            {
+                atime = Time.time;
+            }
+            if(Time.time-atime> 1.65)
+            {
+                k = k + 1.5f;
+                a = new Vector3(0, k, this.transform.position.z);
+                atime = Time.time;
+            }
+            this.transform.position = Vector3.MoveTowards(this.transform.position, a, 5 * Time.deltaTime);
+        }
         if (start == 0&&this.name=="way1")
         {
             this.transform.position = new Vector3(0, -3.83f, -1.9f);
@@ -41,7 +57,7 @@ public class Display1 : MonoBehaviour
             {
                 curtime = Time.time;
             }
-            if (Time.time - curtime > 1.65&&m<=3)
+            if (Time.time - curtime > 1.65&&m<=5)
             {
                 dias[m].SetActive(true);
                 m++;
@@ -49,7 +65,7 @@ public class Display1 : MonoBehaviour
                 a = new Vector3(0, k, this.transform.position.z);
                 curtime = Time.time;
             }
-            if (m >= 1)
+            if (m >= 1&&ch1==0)
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, a, 5 * Time.deltaTime);
             }
