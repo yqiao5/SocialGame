@@ -37,14 +37,17 @@ public class PhoneManager : MonoBehaviour
             {
                 m = new Vector3(this.transform.position.x, this.transform.position.y + 1.4f, this.transform.position.z);
                 tim3 = Time.time;
-                dias[dan].SetActive(false);
+                //dias[dan].SetActive(false);
                 dan++;
             }
             this.transform.position = Vector3.MoveTowards(this.transform.position, m, 5 * Time.deltaTime);
         }
         if (Time.time - curtime > 1.65&&flag<=14)
         {
-            dias[flag].SetActive(true);
+            if (flag <= 13)
+            {
+                dias[flag].SetActive(true);
+            }
             flag++;
             m = new Vector3(this.transform.position.x, this.transform.position.y + 1.35f, this.transform.position.z);
             curtime = Time.time;
@@ -53,19 +56,19 @@ public class PhoneManager : MonoBehaviour
                 tim2 = Time.time;
             }
         }
-        if (Time.time - curtime > 1.65 && flag >= 14&&flag<=16)
+        /*if (Time.time - curtime > 1.65 && flag ==14)
         {
             flag++;
             m = new Vector3(this.transform.position.x, this.transform.position.y + 1.35f, this.transform.position.z);
             curtime = Time.time;
-        }
+        }*/
         if (flag >= 5&&ch1==0)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, m, 5 * Time.deltaTime);
         }
         if (Time.time - tim2 > 1.65 && flag <= 14&&tim2!=0)
         {
-            dias[dan].SetActive(false);
+            //dias[dan].SetActive(false);
             dan++;
             tim2 = Time.time;
         }
