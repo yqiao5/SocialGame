@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -66,7 +67,7 @@ public class PanelManager : MonoBehaviour
             float dis = MouseSecondPosition.y - MouseFirstPosition.y;
             //keyUpFlag = false;
             //Debug.Log("dis: " + dis);
-            if (tempPanel == Panel.InstaContent)
+            if (panelStack.Peek() == Panel.InstaContent)
             {
                 Vector3 pp = Insta_Content.transform.position;
                 float limit = pp.y + dis;
@@ -81,7 +82,7 @@ public class PanelManager : MonoBehaviour
                 Insta_Content.transform.position = new Vector3(pp.x, limit, pp.z);
                 //Debug.Log("Temp Y: " + Insta_Content.transform.position.y);
             }
-            if(tempPanel == Panel.InstaMain)
+            if(panelStack.Peek() == Panel.InstaMain)
             {
                 Vector3 pp = Insta_Content_Main.transform.position;
                 float limit = pp.y + dis;
@@ -143,37 +144,65 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    public void ShowInsta()
-    {
-        Insta_bg.SetActive(true);
-        Insta_Content.SetActive(true);
-        tempPanel = Panel.InstaContent;
-        panelStack.Push(Panel.InstaContent);
-        GameManager.Instance.ClickInsta();
-    }
+    //public void ShowInsta()
+    //{
+    //    //Insta_bg.SetActive(true);
+    //    //Insta_Content.SetActive(true);
+    //    //tempPanel = Panel.InstaContent;
+    //    //panelStack.Push(Panel.InstaContent);
+    //    PushNewPanel(Panel.InstaContent);
+    //    GameManager.Instance.ClickInsta();
+    //}
 
-    public void ShowEmail()
-    {
-        Email_Content.SetActive(true);
-        //Insta_Content.SetActive(true);
-        tempPanel = Panel.EmailContent;
-        panelStack.Push(Panel.EmailContent);
-        GameManager.Instance.ClickEmail();
-    }
+    //public void ShowEmail()
+    //{
+    //    //Email_Content.SetActive(true);
+    //    ////Insta_Content.SetActive(true);
+    //    //tempPanel = Panel.EmailContent;
+    //    //panelStack.Push(Panel.EmailContent);
+    //    PushNewPanel(Panel.EmailContent);
+    //    GameManager.Instance.ClickEmail();
+    //}
 
-    public void ShowEmailGDC()
-    {
-        Email_Content_GDC.SetActive(true);
-        //Insta_Content.SetActive(true);
-        tempPanel = Panel.EmailContentGDC;
-        panelStack.Push(Panel.EmailContentGDC);
-        GameManager.Instance.ClickGDCEmail();
-    }
+    //public void ShowEmailGDC()
+    //{
+    //    //Email_Content_GDC.SetActive(true);
+    //    ////Insta_Content.SetActive(true);
+    //    //tempPanel = Panel.EmailContentGDC;
+    //    //panelStack.Push(Panel.EmailContentGDC);
+    //    PushNewPanel(Panel.EmailContentGDC);
+    //    GameManager.Instance.ClickGDCEmail();
+    //}
 
-    public void ShowBrowse()
+    //public void ShowBrowse()
+    //{
+    //    //Browse_Panel.SetActive(true);
+    //    //panelStack.Push(Panel.Browse);
+    //    PushNewPanel(Panel.Browse);
+    //}
+
+    public void ShowPanel(string newPanel)
     {
-        Browse_Panel.SetActive(true);
-        panelStack.Push(Panel.Browse);
+        Panel panel = (Panel)Enum.Parse(typeof(Panel), newPanel);
+        PushNewPanel(panel);
+        switch (panel)
+        {
+            case Panel.Main:
+                break;
+            case Panel.InstaContent:
+                GameManager.Instance.ClickInsta();
+                break;
+            case Panel.InstaMain:
+                break;
+            case Panel.EmailContent:
+                GameManager.Instance.ClickEmail();
+                break;
+            case Panel.EmailContentGDC:
+                GameManager.Instance.ClickGDCEmail();
+                break;
+            case Panel.Browse:
+                break;
+        }
     }
 
     public void BackButtonClick()
@@ -185,34 +214,39 @@ public class PanelManager : MonoBehaviour
             case Panel.Main:
                 break;
             case Panel.InstaContent:
-                Insta_bg.SetActive(false);
-                Insta_Content.SetActive(false);
-                tempPanel = Panel.Main;
-                panelStack.Pop();
+                //Insta_bg.SetActive(false);
+                //Insta_Content.SetActive(false);
+                //tempPanel = Panel.Main;
+                //panelStack.Pop();
+                PopPanel();
                 GameManager.Instance.ClickBack();
                 break;
             case Panel.InstaMain:
-                Insta_bg.SetActive(false);
-                Insta_Content_Main.SetActive(false);
-                tempPanel = Panel.Main;
-                panelStack.Pop();
+                //Insta_bg.SetActive(false);
+                //Insta_Content_Main.SetActive(false);
+                //tempPanel = Panel.Main;
+                //panelStack.Pop();
+                PopPanel();
                 GameManager.Instance.ClickBack();
                 break;
             case Panel.EmailContentGDC:
-                Email_Content_GDC.SetActive(false);
-                tempPanel = Panel.EmailContent;
-                panelStack.Pop();
+                //Email_Content_GDC.SetActive(false);
+                //tempPanel = Panel.EmailContent;
+                //panelStack.Pop();
+                PopPanel();
                 //GameManager.Instance.ClickBack();
                 break;
             case Panel.EmailContent:
-                Email_Content.SetActive(false);
-                tempPanel = Panel.Main;
-                panelStack.Pop();
+                //Email_Content.SetActive(false);
+                //tempPanel = Panel.Main;
+                //panelStack.Pop();
+                PopPanel();
                 GameManager.Instance.ClickBack();
                 break;
             case Panel.Browse:
-                Browse_Panel.SetActive(false);
-                panelStack.Pop();
+                //Browse_Panel.SetActive(false);
+                //panelStack.Pop();
+                PopPanel();
                 break;
         }
         Debug.Log("stack.peek(): " + panelStack.Peek());
@@ -223,12 +257,14 @@ public class PanelManager : MonoBehaviour
         //if(tempPanel == Panel.InstaContent)
         if(panelStack.Peek() == Panel.InstaContent)
         {
-            Insta_Content_Main.SetActive(true);
-            Insta_bg.SetActive(true);
-            Insta_Content.SetActive(false);
-            tempPanel = Panel.InstaMain;
-            panelStack.Pop();
-            panelStack.Push(Panel.InstaMain);
+            //Insta_Content_Main.SetActive(true);
+            //Insta_bg.SetActive(true);
+            //Insta_Content.SetActive(false);
+            //tempPanel = Panel.InstaMain;
+            //panelStack.Pop();
+            //panelStack.Push(Panel.InstaMain);
+            PopPanel();
+            PushNewPanel(Panel.InstaMain);
             GameManager.Instance.ClickInstaMain();
         }
     }
@@ -238,12 +274,14 @@ public class PanelManager : MonoBehaviour
         //if (tempPanel == Panel.InstaMain)
         if (panelStack.Peek() == Panel.InstaMain)
         {
-            Insta_Content_Main.SetActive(false);
-            Insta_bg.SetActive(true);
-            Insta_Content.SetActive(true);
-            tempPanel = Panel.InstaContent;
-            panelStack.Pop();
-            panelStack.Push(Panel.InstaContent);
+            //Insta_Content_Main.SetActive(false);
+            //Insta_bg.SetActive(true);
+            //Insta_Content.SetActive(true);
+            //tempPanel = Panel.InstaContent;
+            //panelStack.Pop();
+            //panelStack.Push(Panel.InstaContent);
+            PopPanel();
+            PushNewPanel(Panel.InstaContent);
         }
     }
 
@@ -274,5 +312,105 @@ public class PanelManager : MonoBehaviour
     {
         SceneManager.LoadScene("CallScene");
         BGM.setParameterByName("BGM", 0.8f);
+    }
+
+    private void PushNewPanel(Panel newPanel)
+    {
+        switch (panelStack.Peek())
+        {
+            case Panel.Browse:
+                Browse_Panel.SetActive(false);
+                break;
+            case Panel.EmailContent:
+                Email_Content.SetActive(false);
+                break;
+            case Panel.EmailContentGDC:
+                Email_Content_GDC.SetActive(false);
+                break;
+            case Panel.InstaContent:
+                Insta_Content.SetActive(false);
+                Insta_bg.SetActive(false);
+                break;
+            case Panel.InstaMain:
+                Insta_Content_Main.SetActive(false);
+                Insta_bg.SetActive(false);
+                break;
+            case Panel.Main:
+                break;
+
+        }
+        switch (newPanel)
+        {
+            case Panel.Browse:
+                Browse_Panel.SetActive(true);
+                break;
+            case Panel.EmailContent:
+                Email_Content.SetActive(true);
+                break;
+            case Panel.EmailContentGDC:
+                Email_Content_GDC.SetActive(true);
+                break;
+            case Panel.InstaContent:
+                Insta_Content.SetActive(true);
+                Insta_bg.SetActive(true);
+                break;
+            case Panel.InstaMain:
+                Insta_Content_Main.SetActive(true);
+                Insta_bg.SetActive(true);
+                break;
+            case Panel.Main:
+                break;
+
+        }
+        panelStack.Push(newPanel);
+    }
+
+    private void PopPanel()
+    {
+        switch (panelStack.Peek())
+        {
+            case Panel.Browse:
+                Browse_Panel.SetActive(false);
+                break;
+            case Panel.EmailContent:
+                Email_Content.SetActive(false);
+                break;
+            case Panel.EmailContentGDC:
+                Email_Content_GDC.SetActive(false);
+                break;
+            case Panel.InstaContent:
+                Insta_Content.SetActive(false);
+                Insta_bg.SetActive(false);
+                break;
+            case Panel.InstaMain:
+                Insta_Content_Main.SetActive(false);
+                Insta_bg.SetActive(false);
+                break;
+            case Panel.Main:
+                break;
+        }
+        panelStack.Pop();
+        switch (panelStack.Peek())
+        {
+            case Panel.Browse:
+                Browse_Panel.SetActive(true);
+                break;
+            case Panel.EmailContent:
+                Email_Content.SetActive(true);
+                break;
+            case Panel.EmailContentGDC:
+                Email_Content_GDC.SetActive(true);
+                break;
+            case Panel.InstaContent:
+                Insta_Content.SetActive(true);
+                Insta_bg.SetActive(true);
+                break;
+            case Panel.InstaMain:
+                Insta_Content_Main.SetActive(true);
+                Insta_bg.SetActive(true);
+                break;
+            case Panel.Main:
+                break;
+        }
     }
 }
