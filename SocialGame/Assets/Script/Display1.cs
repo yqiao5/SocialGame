@@ -72,7 +72,7 @@ public class Display1 : MonoBehaviour
                 dias[m].SetActive(true);
                 m++;
                 k = k + 1.5f;
-                a = new Vector3(this.transform.x, k, this.transform.position.z);
+                a = new Vector3(this.transform.position.x, k, this.transform.position.z);
                 curtime = Time.time;
             }
             if (m >= 1&&ch1==0)

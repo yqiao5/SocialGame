@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5759571414671707033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.2, y: -10.662462, z: 1.1853102}
+  m_LocalPosition: {x: -30.1, y: -10.662462, z: 1.1853102}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 3285494180132410279}
@@ -158,8 +158,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6476387169327147578}
-  m_Text: "I\u2019m afraid not. but hey! I think this new project\nis perfect for
-    you, just be careful with the people\nthere and you will do great"
+  m_Text: "I\u2019m afraid not\u2026 but hey! I think this new\nproject is perfect
+    for you, just be careful\nwith the people there and you will do great"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -198,8 +198,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6744196924132126930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.001457, y: -9.199999, z: 1.1853102}
-  m_LocalScale: {x: 17.5, y: 20, z: 1}
+  m_LocalPosition: {x: 50.7, y: -10.4, z: 1.1853102}
+  m_LocalScale: {x: 16.5, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 3285494180132410279}
   m_RootOrder: 0
