@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7985159791661612096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\Github\SocialGame\SocialGame\Audio\socialGame\Build\Desktop\Master.bank
+  lastModified: 636928702053175072
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-6525651228806373806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,7 +49,7 @@ MonoBehaviour:
   Path: event:/Ringtone
   guid: 87afcd261e203c49a16d34c3f9e05a3b
   Banks:
-  - {fileID: -4639364123831654363}
+  - {fileID: -7985159791661612096}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -128,18 +145,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 8662940953844660373}
-  - {fileID: -4639364123831654363}
-  - {fileID: 8567898471579456064}
+  - {fileID: -7985159791661612096}
+  - {fileID: 5010118510211812601}
   EditorEvents:
   - {fileID: 4697585457699475361}
   - {fileID: 7978515752152168894}
   - {fileID: -6269373222528190253}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4639364123831654363}
+  - {fileID: -7985159791661612096}
   StringsBanks:
   - {fileID: 8662940953844660373}
-  stringsBankWriteTime: 636928743166205330
+  stringsBankWriteTime: 636928702053195017
   cacheVersion: 3
 --- !u!114 &866331366365345976
 MonoBehaviour:
@@ -219,7 +236,7 @@ MonoBehaviour:
   Path: event:/Notification
   guid: 4e1ed7d4b3e2584eb56f501dea97a3de
   Banks:
-  - {fileID: -4639364123831654363}
+  - {fileID: -7985159791661612096}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -227,6 +244,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1384
+--- !u!114 &5010118510211812601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\Github\SocialGame\SocialGame\Audio\socialGame\Build\Desktop\Master.strings.bank
+  lastModified: 636928702053195017
+  LoadResult: 70
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5808630483409998455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,15 +312,14 @@ MonoBehaviour:
   Path: event:/BGM
   guid: 6fdc8f557693a54e933da37f0eeed9ae
   Banks:
-  - {fileID: -4639364123831654363}
+  - {fileID: -7985159791661612096}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -6525651228806373806}
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 288000
+  Length: 212600
 --- !u!114 &8567898471579456064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,9 +350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Audio\socialGame\Build\Desktop\Master.strings.bank
-  lastModified: 636928743166205330
+  lastModified: 636928702053195017
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 860
+    Value: 814
   Exists: 1
