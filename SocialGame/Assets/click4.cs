@@ -29,7 +29,7 @@ public class click4 : MonoBehaviour
                     {
                         GameObject.Find("way2").GetComponent<Display1>().ch1 = 1;
                     }
-                    //GameObject.Find("way1").GetComponent<Display1>().start = 1;
+                    GameObject.Find("cho2").GetComponent<Display1>().start = 1;
 
                     break;
                 }
