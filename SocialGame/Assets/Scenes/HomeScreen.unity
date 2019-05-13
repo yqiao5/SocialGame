@@ -1929,7 +1929,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2098226729}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2101,7 +2101,7 @@ RectTransform:
   m_Children:
   - {fileID: 1158148698}
   m_Father: {fileID: 2098226729}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2340,6 +2340,14 @@ MonoBehaviour:
   Email_Content_GDC: {fileID: 8477514778649357451}
   Calling_Panel: {fileID: 3680761845304856224}
   Browse_Panel: {fileID: 6320281845284726114}
+  tempPanel: 0
+  MouseFirstPosition: {x: 0, y: 0}
+  MouseSecondPosition: {x: 0, y: 0}
+  keyDownFlag: 0
+  keyUpFlag: 0
+  InstaPositionOnDown: {x: 0, y: 0, z: 0}
+  CallingFlag: 0
+  CallingTimer: 0
 --- !u!225 &1098463369
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2606,7 +2614,7 @@ RectTransform:
   m_Children:
   - {fileID: 1941057276}
   m_Father: {fileID: 2098226729}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2978,7 +2986,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2098226729}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4019,6 +4027,7 @@ GameObject:
   - component: {fileID: 1941057276}
   - component: {fileID: 1941057278}
   - component: {fileID: 1941057277}
+  - component: {fileID: 1941057279}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4042,8 +4051,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2.05}
-  m_SizeDelta: {x: 56.04, y: 25.9}
+  m_AnchoredPosition: {x: 5.8, y: -5.67}
+  m_SizeDelta: {x: 67.64, y: 33.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1941057277
 MonoBehaviour:
@@ -4067,7 +4076,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 10
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -4078,7 +4087,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: time
+  m_Text: 09:43
 --- !u!222 &1941057278
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4087,6 +4096,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941057275}
   m_CullTransparentMesh: 0
+--- !u!114 &1941057279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941057275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec37ed3e67230f4ca7e212b8a520eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  curtime: 0
+  m: 
+  arr: 
 --- !u!1 &1947636645 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3304482828033356772, guid: 67b205875aaa57844b4439aa58323a12,
@@ -4429,10 +4454,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1098463365}
+  - {fileID: 1201572177}
   - {fileID: 959090680}
   - {fileID: 1501469385}
   - {fileID: 964653998}
-  - {fileID: 1201572177}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5634,12 +5659,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7606477267162628692, guid: b7cadf73725da6740a3ea02b0bddea7a,
+    - target: {fileID: 6491564391886612578, guid: b7cadf73725da6740a3ea02b0bddea7a,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6491564391886612578, guid: b7cadf73725da6740a3ea02b0bddea7a,
+    - target: {fileID: 7606477267162628692, guid: b7cadf73725da6740a3ea02b0bddea7a,
         type: 3}
       propertyPath: m_IsActive
       value: 1
