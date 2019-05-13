@@ -21,7 +21,7 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    enum Panel
+    public enum Panel
     {
         Main,
         InstaContent,
@@ -29,7 +29,10 @@ public class PanelManager : MonoBehaviour
         EmailContent,
         EmailContentGDC,
         Browse,
-        Calling
+        Calling,
+        LockScreen,
+        Note,
+        NoteContent
     }
     FMOD.Studio.EventInstance BGM;
     FMOD.Studio.EventInstance Ringtone;
@@ -40,11 +43,16 @@ public class PanelManager : MonoBehaviour
     public GameObject Email_Content_GDC;
     public GameObject Calling_Panel;
     public GameObject Browse_Panel;
+    public GameObject LockScreen_Panel;
+    public GameObject Note0_Panel;
+    public GameObject Note1_Panel;
+    public GameObject Note_Content_Panel;
 
     public GameObject MainSceneCamera;
     private Panel tempPanel = Panel.Main;
     //private Vector2 MouseUpPosition;
     //private Vector2 MouseDownPosition;
+    private int day = 0;
     private Vector2 MouseFirstPosition;
     private Vector2 MouseSecondPosition;
     private bool keyDownFlag = false;
@@ -60,6 +68,8 @@ public class PanelManager : MonoBehaviour
         Ringtone = FMODUnity.RuntimeManager.CreateInstance("event:/Ringtone");
         BGM.start();
         panelStack.Push(Panel.Main);
+        //LockScreen_Panel.SetActive(false);
+        PushNewPanel(Panel.LockScreen);
     }
 
     // Update is called once per frame
@@ -136,7 +146,7 @@ public class PanelManager : MonoBehaviour
         if (CallingFlag)
         {
             CallingTimer += Time.deltaTime;
-            //Debug.Log("In Calling");
+            Debug.Log("In Calling");
             if (CallingTimer > 3)
             {
                 CallingFlag = false;
@@ -147,43 +157,6 @@ public class PanelManager : MonoBehaviour
             }
         }
     }
-
-    //public void ShowInsta()
-    //{
-    //    //Insta_bg.SetActive(true);
-    //    //Insta_Content.SetActive(true);
-    //    //tempPanel = Panel.InstaContent;
-    //    //panelStack.Push(Panel.InstaContent);
-    //    PushNewPanel(Panel.InstaContent);
-    //    GameManager.Instance.ClickInsta();
-    //}
-
-    //public void ShowEmail()
-    //{
-    //    //Email_Content.SetActive(true);
-    //    ////Insta_Content.SetActive(true);
-    //    //tempPanel = Panel.EmailContent;
-    //    //panelStack.Push(Panel.EmailContent);
-    //    PushNewPanel(Panel.EmailContent);
-    //    GameManager.Instance.ClickEmail();
-    //}
-
-    //public void ShowEmailGDC()
-    //{
-    //    //Email_Content_GDC.SetActive(true);
-    //    ////Insta_Content.SetActive(true);
-    //    //tempPanel = Panel.EmailContentGDC;
-    //    //panelStack.Push(Panel.EmailContentGDC);
-    //    PushNewPanel(Panel.EmailContentGDC);
-    //    GameManager.Instance.ClickGDCEmail();
-    //}
-
-    //public void ShowBrowse()
-    //{
-    //    //Browse_Panel.SetActive(true);
-    //    //panelStack.Push(Panel.Browse);
-    //    PushNewPanel(Panel.Browse);
-    //}
 
     public void ShowPanel(string newPanel)
     {
@@ -210,8 +183,7 @@ public class PanelManager : MonoBehaviour
     }
 
     public void BackButtonClick()
-    {
-        
+    {        
         //switch (tempPanel)
         switch (panelStack.Peek())
         {
@@ -252,6 +224,12 @@ public class PanelManager : MonoBehaviour
                 //panelStack.Pop();
                 PopPanel();
                 break;
+            case Panel.Note:
+                PopPanel();
+                break;
+            case Panel.NoteContent:
+                PopPanel();
+                break;
         }
         Debug.Log("stack.peek(): " + panelStack.Peek());
     }
@@ -288,24 +266,7 @@ public class PanelManager : MonoBehaviour
             PushNewPanel(Panel.InstaContent);
         }
     }
-
-    //private void OnMouseDown()
-    //{
-    //    Debug.Log("OnMouseDown");
-    //    MouseDownPosition = Input.mousePosition;
-    //    keyDownFlag = true;
-    //}
-
-    //private void OnMouseUp()
-    //{
-    //    if (keyDownFlag)
-    //    {
-    //        MouseUpPosition = Input.mousePosition;
-    //        keyUpFlag = true;
-    //        keyDownFlag = false;
-    //    }
-
-    //}
+    
     public void EmailTutorEnd()
     {
         //Debug.Log("In tutor end");
@@ -324,61 +285,21 @@ public class PanelManager : MonoBehaviour
 
     private void PushNewPanel(Panel newPanel)
     {
-        switch (panelStack.Peek())
-        {
-            case Panel.Browse:
-                Browse_Panel.SetActive(false);
-                break;
-            case Panel.EmailContent:
-                Email_Content.SetActive(false);
-                break;
-            case Panel.EmailContentGDC:
-                Email_Content_GDC.SetActive(false);
-                break;
-            case Panel.InstaContent:
-                Insta_Content.SetActive(false);
-                Insta_bg.SetActive(false);
-                break;
-            case Panel.InstaMain:
-                Insta_Content_Main.SetActive(false);
-                Insta_bg.SetActive(false);
-                break;
-            case Panel.Main:
-                break;
-
-        }
-        switch (newPanel)
-        {
-            case Panel.Browse:
-                Browse_Panel.SetActive(true);
-                break;
-            case Panel.EmailContent:
-                Email_Content.SetActive(true);
-                break;
-            case Panel.EmailContentGDC:
-                Email_Content_GDC.SetActive(true);
-                break;
-            case Panel.InstaContent:
-                Insta_Content.SetActive(true);
-                Insta_bg.SetActive(true);
-                break;
-            case Panel.InstaMain:
-                Insta_Content_Main.SetActive(true);
-                Insta_bg.SetActive(true);
-                break;
-            case Panel.Calling:
-                Calling_Panel.SetActive(true);
-                break;
-            case Panel.Main:
-                break;
-
-        }
+        HidePanel(panelStack.Peek());
+        ShowPanel(newPanel);
         panelStack.Push(newPanel);
     }
 
-    private void PopPanel()
+    public void PopPanel()
     {
-        switch (panelStack.Peek())
+        HidePanel(panelStack.Peek());
+        panelStack.Pop();
+        ShowPanel(panelStack.Peek());
+    }
+
+    private void HidePanel(Panel panel)
+    {
+        switch (panel)
         {
             case Panel.Browse:
                 Browse_Panel.SetActive(false);
@@ -400,11 +321,29 @@ public class PanelManager : MonoBehaviour
             case Panel.Calling:
                 Calling_Panel.SetActive(false);
                 break;
+            case Panel.LockScreen:
+                LockScreen_Panel.SetActive(false);
+                break;
+            case Panel.Note:
+                if(day == 0)
+                {
+                    Note0_Panel.SetActive(false);
+                }else if(day == 1)
+                {
+                    Note1_Panel.SetActive(false);
+                }                
+                break;
+            case Panel.NoteContent:
+                Note_Content_Panel.SetActive(false);
+                break;
             case Panel.Main:
                 break;
         }
-        panelStack.Pop();
-        switch (panelStack.Peek())
+    }
+
+    private void ShowPanel(Panel panel)
+    {
+        switch (panel)
         {
             case Panel.Browse:
                 Browse_Panel.SetActive(true);
@@ -422,6 +361,25 @@ public class PanelManager : MonoBehaviour
             case Panel.InstaMain:
                 Insta_Content_Main.SetActive(true);
                 Insta_bg.SetActive(true);
+                break;
+            case Panel.LockScreen:
+                LockScreen_Panel.SetActive(true);
+                break;
+            case Panel.Calling:
+                Calling_Panel.SetActive(true);
+                break;
+            case Panel.Note:
+                if (day == 0)
+                {
+                    Note0_Panel.SetActive(true);
+                }
+                else if (day == 1)
+                {
+                    Note1_Panel.SetActive(true);
+                }
+                break;
+            case Panel.NoteContent:
+                Note_Content_Panel.SetActive(true);
                 break;
             case Panel.Main:
                 break;
