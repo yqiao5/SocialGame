@@ -297,5 +297,15 @@ PrefabInstance:
       propertyPath: dias.Array.data[4]
       value: 
       objectReference: {fileID: 1162832509}
+    - target: {fileID: 292499940891106144, guid: e20f8356005eeb24bb16f8758927d8c6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 292499941674360402, guid: e20f8356005eeb24bb16f8758927d8c6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e20f8356005eeb24bb16f8758927d8c6, type: 3}
