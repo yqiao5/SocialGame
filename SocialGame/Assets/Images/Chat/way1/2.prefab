@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256800135084622380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.88, y: -8.35, z: -2.4706204}
+  m_LocalPosition: {x: -21.48, y: -8.35, z: -2.4706204}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 6995403968913779414}
@@ -79,8 +79,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256800135084622380}
-  m_Text: "But I don\u2019t want it\u2026 I have been working on\nit since winter!
-    Can you please talk Bob out\nof it?\r\n"
+  m_Text: "But\u2026 I was looking forward to it, I have\nbeen working on it since
+    winter! Can you\nplease talk Bob out of it?\r\n"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -119,7 +119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4820886936471632942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.727184, y: -9.2999935, z: 2.4706204}
+  m_LocalPosition: {x: 52.1, y: -9.2999935, z: 2.4706204}
   m_LocalScale: {x: 16.5, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 6865424242209013723}
@@ -188,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 133.6
+      value: 132.4
       objectReference: {fileID: 0}
     - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
         type: 3}
