@@ -67,9 +67,13 @@ public class Display1 : MonoBehaviour
             {
                 curtime = Time.time;
             }
-            if (Time.time - curtime > 1.65&&m<= dias.Count - 1)
+            if (Time.time - curtime > 1.65&&m<= dias.Count)
             {
-                dias[m].SetActive(true);
+                if(m<= dias.Count - 1)
+                {
+                    dias[m].SetActive(true);
+                }
+                
                 m++;
                 k = k + 1.5f;
                 a = new Vector3(this.transform.position.x, k, this.transform.position.z);
