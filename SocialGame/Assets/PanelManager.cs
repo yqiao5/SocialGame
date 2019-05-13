@@ -21,7 +21,7 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    enum Panel
+    public enum Panel
     {
         Main,
         InstaContent,
@@ -29,7 +29,8 @@ public class PanelManager : MonoBehaviour
         EmailContent,
         EmailContentGDC,
         Browse,
-        Calling
+        Calling,
+        LockScreen
     }
     FMOD.Studio.EventInstance BGM;
     FMOD.Studio.EventInstance Ringtone;
@@ -40,6 +41,7 @@ public class PanelManager : MonoBehaviour
     public GameObject Email_Content_GDC;
     public GameObject Calling_Panel;
     public GameObject Browse_Panel;
+    public GameObject LockScreen_Panel;
 
     public GameObject MainSceneCamera;
     private Panel tempPanel = Panel.Main;
@@ -60,6 +62,8 @@ public class PanelManager : MonoBehaviour
         Ringtone = FMODUnity.RuntimeManager.CreateInstance("event:/Ringtone");
         BGM.start();
         panelStack.Push(Panel.Main);
+        //LockScreen_Panel.SetActive(false);
+        PushNewPanel(Panel.LockScreen);
     }
 
     // Update is called once per frame
@@ -369,6 +373,9 @@ public class PanelManager : MonoBehaviour
             case Panel.Calling:
                 Calling_Panel.SetActive(true);
                 break;
+            case Panel.LockScreen:
+                LockScreen_Panel.SetActive(true);
+                break;
             case Panel.Main:
                 break;
 
@@ -376,7 +383,7 @@ public class PanelManager : MonoBehaviour
         panelStack.Push(newPanel);
     }
 
-    private void PopPanel()
+    public void PopPanel()
     {
         switch (panelStack.Peek())
         {
@@ -399,6 +406,9 @@ public class PanelManager : MonoBehaviour
                 break;
             case Panel.Calling:
                 Calling_Panel.SetActive(false);
+                break;
+            case Panel.LockScreen:
+                LockScreen_Panel.SetActive(false);
                 break;
             case Panel.Main:
                 break;
