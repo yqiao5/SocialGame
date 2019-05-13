@@ -275,12 +275,18 @@ public class PanelManager : MonoBehaviour
 
     public void ReceiveCallButtonClick()
     {
-
         SceneManager.LoadScene("CallScene",LoadSceneMode.Additive);
         PopPanel();
         transform.GetComponent<CanvasGroup>().alpha = 0;
         MainSceneCamera.SetActive(false);        
         BGM.setParameterByName("BGM", 0.8f);
+    }
+
+    public void EndCall()
+    {
+        transform.GetComponent<CanvasGroup>().alpha = 1;
+        MainSceneCamera.SetActive(true);
+        SceneManager.UnloadSceneAsync("CallScene");
     }
 
     private void PushNewPanel(Panel newPanel)
