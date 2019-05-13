@@ -28,7 +28,8 @@ public class PanelManager : MonoBehaviour
         InstaMain,
         EmailContent,
         EmailContentGDC,
-        Browse
+        Browse,
+        Calling
     }
     FMOD.Studio.EventInstance BGM;
     FMOD.Studio.EventInstance Ringtone;
@@ -39,6 +40,8 @@ public class PanelManager : MonoBehaviour
     public GameObject Email_Content_GDC;
     public GameObject Calling_Panel;
     public GameObject Browse_Panel;
+
+    public GameObject MainSceneCamera;
     private Panel tempPanel = Panel.Main;
     //private Vector2 MouseUpPosition;
     //private Vector2 MouseDownPosition;
@@ -137,7 +140,8 @@ public class PanelManager : MonoBehaviour
             if (CallingTimer > 3)
             {
                 CallingFlag = false;
-                Calling_Panel.SetActive(true);
+                //Calling_Panel.SetActive(true);
+                PushNewPanel(Panel.Calling);
                 BGM.setParameterByName("BGM", 0.5f);
                 
             }
@@ -310,7 +314,11 @@ public class PanelManager : MonoBehaviour
 
     public void ReceiveCallButtonClick()
     {
-        SceneManager.LoadScene("CallScene");
+
+        SceneManager.LoadScene("CallScene",LoadSceneMode.Additive);
+        PopPanel();
+        transform.GetComponent<CanvasGroup>().alpha = 0;
+        MainSceneCamera.SetActive(false);        
         BGM.setParameterByName("BGM", 0.8f);
     }
 
@@ -358,6 +366,9 @@ public class PanelManager : MonoBehaviour
                 Insta_Content_Main.SetActive(true);
                 Insta_bg.SetActive(true);
                 break;
+            case Panel.Calling:
+                Calling_Panel.SetActive(true);
+                break;
             case Panel.Main:
                 break;
 
@@ -385,6 +396,9 @@ public class PanelManager : MonoBehaviour
             case Panel.InstaMain:
                 Insta_Content_Main.SetActive(false);
                 Insta_bg.SetActive(false);
+                break;
+            case Panel.Calling:
+                Calling_Panel.SetActive(false);
                 break;
             case Panel.Main:
                 break;

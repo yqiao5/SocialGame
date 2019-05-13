@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = GameObject.Find("GameManager(Clone)").GetComponent<GameManager>();
+                _instance = GameObject.Find("GameManager").GetComponent<GameManager>();
             }
             return _instance;
         }
