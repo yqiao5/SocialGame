@@ -1548,7 +1548,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: NaN, z: 5.87e-43, w: 1.4011807e+14}
+  m_BoundingSphereOverride: {x: 2.72e-42, y: 6e-44, z: 5.87e-43, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2347,7 +2347,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1098463364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c153df663b816774e92b902f67ee39de, type: 3}
+  m_Script: {fileID: 11500000, guid: 38c9717ea503d6e42bda9f3af81a8510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Insta_bg: {fileID: 438173307}

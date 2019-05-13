@@ -284,6 +284,7 @@ public class PanelManager : MonoBehaviour
 
     public void EndCall()
     {
+        day = 1;
         transform.GetComponent<CanvasGroup>().alpha = 1;
         MainSceneCamera.SetActive(true);
         SceneManager.UnloadSceneAsync("CallScene");
