@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3041077305436157478}
   - component: {fileID: 7073881256730577143}
   - component: {fileID: 2926045159964590754}
+  - component: {fileID: 7839803089067271245}
   m_Layer: 0
   m_Name: 17
   m_TagString: Untagged
@@ -30,6 +31,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 6840159249154870325}
+  - {fileID: 3161291651493401389}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93,6 +95,24 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!114 &7839803089067271245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2352533636422643274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360ecc4dd24a8124389ae42bef834e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  a: 
+  b: 
+  curtime: 0
+  flag: 0
+  end: 0
+  k: {x: 0, y: 0, z: 0}
 --- !u!1 &5561508912037983297
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,3 +192,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &2049902453648608925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3041077305436157478}
+    m_Modifications:
+    - target: {fileID: 8947647059129407169, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_Name
+      value: lily_icon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 133.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 31
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c863213735c760e4da6547351121fe20, type: 3}
+--- !u!4 &3161291651493401389 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4012035922911649200, guid: c863213735c760e4da6547351121fe20,
+    type: 3}
+  m_PrefabInstance: {fileID: 2049902453648608925}
+  m_PrefabAsset: {fileID: 0}

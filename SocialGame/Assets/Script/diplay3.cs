@@ -10,7 +10,7 @@ public class diplay3 : MonoBehaviour
     public Vector3 k;
     void Start()
     {
-        for(int i = 0; i <= 6; i++)
+        for(int i = 0; i <= m.Length-1; i++)
         {
             m[i].SetActive(false);
             k = this.transform.position;
@@ -21,18 +21,18 @@ public class diplay3 : MonoBehaviour
     void Update()
     {
         m[0].SetActive(true);
-        if (flag <= 6)
+        if (flag <= m.Length - 1)
         {
             if (m[flag].GetComponent<nextscentence>().end == true)
             {
                 flag++;
-                if (flag <= 6)
+                if (flag <= m.Length - 1)
                 {
                     m[flag].SetActive(true);
                 }
                 if (flag >= 3)
                 {
-                    k = new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+                    k = new Vector3(this.transform.position.x, this.transform.position.y + 1.7f, this.transform.position.z);
                 }
             }
         }
