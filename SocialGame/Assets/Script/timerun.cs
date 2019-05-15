@@ -9,6 +9,7 @@ public class timerun : MonoBehaviour
     public string m;
     public char[] arr;
     private float curtime;
+    public bool end = false;
     void Start()
     {
         arr = this.GetComponent<Text>().text.ToCharArray();
@@ -21,7 +22,7 @@ public class timerun : MonoBehaviour
         {
             curtime = Time.time;
         }
-        if (Time.time - curtime >= 0.5)
+        if (Time.time - curtime >= 0.2&&end==false)
         {
             if (arr[4] == '9')
             {
@@ -52,5 +53,9 @@ public class timerun : MonoBehaviour
         }
         m = new string(arr);
         this.GetComponent<Text>().text = m;
+        if (m == "21:00")
+        {
+            end = true;
+        }
     }
 }
