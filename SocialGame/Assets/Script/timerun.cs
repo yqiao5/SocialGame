@@ -67,7 +67,6 @@ public class timerun : MonoBehaviour
         if (m == "21:00" && flag == 1)
         {
             end = true;
-            //flag = 2;
         }
         else if (m == "09:30" && flag == 2)
         {

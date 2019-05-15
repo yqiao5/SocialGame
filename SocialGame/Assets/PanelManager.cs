@@ -190,14 +190,7 @@ public class PanelManager : MonoBehaviour
         switch (panel)
         {
             case Panel.Main:
-                if (day == 2)
-                {
-                    GameManager.Instance.ShowNoteTutor();
-                }
-                if(day == 3)
-                {
-                    GameManager.Instance.ShowGrouptalkNotification();
-                }
+                
                 break;
             case Panel.InstaContent:
                 GameManager.Instance.ClickInsta();
@@ -473,7 +466,14 @@ public class PanelManager : MonoBehaviour
                 }
                 break;
             case Panel.Main:
-                
+                if (day == 2)
+                {
+                    GameManager.Instance.ShowNoteTutor();
+                }
+                if (day == 3)
+                {
+                    GameManager.Instance.ShowGrouptalkNotification();
+                }
                 break;
         }
     }

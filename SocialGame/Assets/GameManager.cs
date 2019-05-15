@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private bool GDCEmailFlag = true;
     private bool EmailBackFlag = true;
     private bool NoteFlag = true;
+    private bool GroupNotiFlag = true;
     
 
     public GameObject InstaTutor;
@@ -150,6 +151,11 @@ public class GameManager : MonoBehaviour
 
     public void ShowGrouptalkNotification()
     {
-        GrouptalkNotification.Play();
+        if (GroupNotiFlag)
+        {
+            GrouptalkNotification.Play();
+            GroupNotiFlag = false;
+        }
+        
     }
 }
