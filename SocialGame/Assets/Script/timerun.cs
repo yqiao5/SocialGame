@@ -77,4 +77,9 @@ public class timerun : MonoBehaviour
             PanelManager.Instance.PopPanel();
         }
     }
+
+    public void SetEndFlag()
+    {
+        end = false;
+    }
 }
