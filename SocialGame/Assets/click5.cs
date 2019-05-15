@@ -30,6 +30,10 @@ public class click5 : MonoBehaviour
                     {
                         PanelManager.Instance.EndMessage();
                     }
+                    else if (this.tag == "group")
+                    {
+                        PanelManager.Instance.EndTalk();
+                    }
                 }
             }
 
