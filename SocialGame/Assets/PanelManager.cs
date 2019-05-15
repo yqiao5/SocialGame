@@ -184,7 +184,7 @@ public class PanelManager : MonoBehaviour
                 CallingTimer = 0;
                 //Calling_Panel.SetActive(true);
                 PushNewPanel(Panel.Calling);
-                BGM.setParameterByName("BGM", 0.5f);
+                BGM.setParameterByName("BGM", 12f);
                 
             }
         }
@@ -198,6 +198,7 @@ public class PanelManager : MonoBehaviour
                 MessageFlag = false;
                 MessageTimer = 0;
                 //Calling_Panel.SetActive(true);
+                BGM.setParameterByName("BGM", 37f);
                 PushNewPanel(Panel.LockScreen);
                 LockScreenClock.GetComponent<timerun>().SetEndFlag();
                 day++;
@@ -357,7 +358,7 @@ public class PanelManager : MonoBehaviour
         transform.GetComponent<CanvasGroup>().alpha = 0;
         transform.GetComponent<CanvasGroup>().interactable = false;
         MainSceneCamera.SetActive(false);        
-        BGM.setParameterByName("BGM", 0.8f);
+        BGM.setParameterByName("BGM", 17f);
     }
 
     public void EndCall()
@@ -371,6 +372,7 @@ public class PanelManager : MonoBehaviour
 
     public void ClickMessage()
     {
+        BGM.setParameterByName("BGM", 25f);
         SceneManager.LoadScene("TextScene", LoadSceneMode.Additive);
         //PopPanel();
         transform.GetComponent<CanvasGroup>().alpha = 0;
@@ -586,10 +588,13 @@ public class PanelManager : MonoBehaviour
                 if (day == 2)
                 {
                     GameManager.Instance.ShowNoteTutor();
+                    BGM.setParameterByName("BGM", 50f);
                 }
                 if (day == 3)
                 {
                     GameManager.Instance.ShowGrouptalkNotification();
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Notification");
+                    BGM.setParameterByName("BGM", 65f);
                 }
                 if(day == 4)
                 {
