@@ -32,7 +32,8 @@ public class PanelManager : MonoBehaviour
         Calling,
         LockScreen,
         Note,
-        NoteContent
+        NoteContent,
+        Message
     }
     FMOD.Studio.EventInstance BGM;
     FMOD.Studio.EventInstance Ringtone;
@@ -46,6 +47,8 @@ public class PanelManager : MonoBehaviour
     public GameObject LockScreen_Panel;
     public GameObject Note0_Panel;
     public GameObject Note1_Panel;
+    public GameObject Message0_Panel;
+    public GameObject Message1_Panel;
     public GameObject Note_Content_Panel;
 
     public GameObject MainSceneCamera;
@@ -227,6 +230,9 @@ public class PanelManager : MonoBehaviour
             case Panel.Note:
                 PopPanel();
                 break;
+            case Panel.Message:
+                PopPanel();
+                break;
             case Panel.NoteContent:
                 PopPanel();
                 break;
@@ -352,6 +358,16 @@ public class PanelManager : MonoBehaviour
             case Panel.NoteContent:
                 Note_Content_Panel.SetActive(false);
                 break;
+            case Panel.Message:
+                if (day == 0)
+                {
+                    Message0_Panel.SetActive(false);
+                }
+                else if (day == 1)
+                {
+                    Message1_Panel.SetActive(false);
+                }
+                break;            
             case Panel.Main:
                 break;
         }
@@ -396,6 +412,16 @@ public class PanelManager : MonoBehaviour
                 break;
             case Panel.NoteContent:
                 Note_Content_Panel.SetActive(true);
+                break;
+            case Panel.Message:
+                if (day == 0)
+                {
+                    Message0_Panel.SetActive(true);
+                }
+                else if (day == 1)
+                {
+                    Message1_Panel.SetActive(true);
+                }
                 break;
             case Panel.Main:
                 break;
