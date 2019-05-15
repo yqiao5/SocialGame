@@ -55,7 +55,7 @@ public class timerun : MonoBehaviour
             }
         }
         m = new string(arr);
-        if (m == "23:59")
+        if (m >= "23:57")
         {
             m = "00:00";
         }
