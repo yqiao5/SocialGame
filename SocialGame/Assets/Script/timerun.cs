@@ -15,6 +15,7 @@ public class timerun : MonoBehaviour
     void Start()
     {
         arr = this.GetComponent<Text>().text.ToCharArray();
+        PanelManager.Instance.StartLockScreenTutor();
         flag = 1;
         end = true;
     }
@@ -67,10 +68,12 @@ public class timerun : MonoBehaviour
         if (m == "21:00" && flag == 1)
         {
             end = true;
+            PanelManager.Instance.StartLockScreenTutor();
             flag = 2;
         }
         else if (m == "09:30" && flag == 2)
         {
+            PanelManager.Instance.StartLockScreenTutor();
             end = true;
         }
     }

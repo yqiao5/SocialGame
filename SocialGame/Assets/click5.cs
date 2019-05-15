@@ -6,6 +6,7 @@ public class click5 : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool end=false;
+    public int flag;
     void Start()
     {
 
@@ -40,11 +41,15 @@ public class click5 : MonoBehaviour
                     }
                     else if (this.tag == "ch"&&this.name=="p1")
                     {
-                        
+                        flag = 1;
+                        GameObject.Find("p1").GetComponent<click5>().end = true;
+                        GameObject.Find("p2").GetComponent<click5>().end = true;
                     }
                     else if (this.tag == "ch" && this.name == "p2")
                     {
-
+                        flag = 2;
+                        GameObject.Find("p1").GetComponent<click5>().end = true;
+                        GameObject.Find("p2").GetComponent<click5>().end = true;
                     }
                 }
             }

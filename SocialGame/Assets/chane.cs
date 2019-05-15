@@ -75,13 +75,13 @@ public class chane : MonoBehaviour
         }
     }
 
-    [Range(-10.0f, 3.0f)]
+    [Range(-10.0f, 8.0f)]
     public float brightness = 1.0f;
 
-    [Range(0.0f, 3.0f)]
+    [Range(-10.0f, 8.0f)]
     public float saturation = 1.0f;
 
-    [Range(0.0f, 3.0f)]
+    [Range(-10.0f, 8.0f)]
     public float contrast = 1.0f;
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)

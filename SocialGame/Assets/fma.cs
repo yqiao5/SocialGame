@@ -41,6 +41,20 @@ public class fma : MonoBehaviour
                 GameObject.Find("p2").GetComponent<click5>().end = true;
             }
         }
+        if (Time.time - curtime > 0.05 && flag == 2)
+        {
+            if (GameObject.Find("p1").GetComponent<click5>().flag == 1&& GameObject.Find("p2").GetComponent<click5>().flag !=2)
+            {
+                GameObject.Find("Main Camera").GetComponent<chane>().brightness += 0.16f;
+                GameObject.Find("Main Camera").GetComponent<chane>().saturation = -0.1f;
+                GameObject.Find("Main Camera").GetComponent<chane>().contrast -= 0.1f;
+            }
+            else if(GameObject.Find("p2").GetComponent<click5>().flag == 2)
+            {
+                GameObject.Find("Main Camera").GetComponent<chane>().brightness -= 0.08f;
+            }
+            curtime = 0;
+        }
 
     }
 }
