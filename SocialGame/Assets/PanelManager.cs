@@ -178,7 +178,7 @@ public class PanelManager : MonoBehaviour
         {
             CallingTimer += Time.deltaTime;
             //Debug.Log("In Calling");
-            if (CallingTimer > 3)
+            if (CallingTimer > 1)
             {
                 CallingFlag = false;
                 CallingTimer = 0;
@@ -193,7 +193,7 @@ public class PanelManager : MonoBehaviour
         {
             MessageTimer += Time.deltaTime;
             //Debug.Log("In Calling");
-            if (MessageTimer > 3)
+            if (MessageTimer > 1)
             {
                 MessageFlag = false;
                 MessageTimer = 0;
@@ -498,6 +498,7 @@ public class PanelManager : MonoBehaviour
                 Calling_Panel.SetActive(false);
                 break;
             case Panel.LockScreen:
+                LockScreen_Panel.GetComponent<LockScreen>().StopTutor();
                 LockScreen_Panel.SetActive(false);
                 break;
             case Panel.Note:

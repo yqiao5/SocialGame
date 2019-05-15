@@ -22,5 +22,8 @@ public class LockScreen : MonoBehaviour
     {
         Tutor.SetActive(true);
     }
-
+    public void StopTutor()
+    {
+        Tutor.SetActive(false);
+    }
 }
