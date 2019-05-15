@@ -176,6 +176,8 @@ public class PanelManager : MonoBehaviour
                 //Calling_Panel.SetActive(true);
                 PushNewPanel(Panel.LockScreen);
                 LockScreenClock.GetComponent<timerun>().SetEndFlag();
+                day++;
+                
                 //BGM.setParameterByName("BGM", 0.5f);
             }
         }
@@ -188,6 +190,14 @@ public class PanelManager : MonoBehaviour
         switch (panel)
         {
             case Panel.Main:
+                if (day == 2)
+                {
+                    GameManager.Instance.ShowNoteTutor();
+                }
+                if(day == 3)
+                {
+                    GameManager.Instance.ShowGrouptalkNotification();
+                }
                 break;
             case Panel.InstaContent:
                 GameManager.Instance.ClickInsta();
@@ -201,6 +211,12 @@ public class PanelManager : MonoBehaviour
                 GameManager.Instance.ClickGDCEmail();
                 break;
             case Panel.Browse:
+                break;
+            case Panel.Note:
+                if(day == 2)
+                {
+                    GameManager.Instance.ClickNote();
+                }
                 break;
         }
     }
@@ -249,6 +265,7 @@ public class PanelManager : MonoBehaviour
                 break;
             case Panel.Note:
                 PopPanel();
+                MessageFlag = true;
                 break;
             case Panel.Message:
                 PopPanel();
@@ -379,10 +396,10 @@ public class PanelManager : MonoBehaviour
                 LockScreen_Panel.SetActive(false);
                 break;
             case Panel.Note:
-                if(day == 0)
+                if(day == 0 || day == 1)
                 {
                     Note0_Panel.SetActive(false);
-                }else if(day == 1)
+                }else if(day ==2)
                 {
                     Note1_Panel.SetActive(false);
                 }                
@@ -391,7 +408,7 @@ public class PanelManager : MonoBehaviour
                 Note_Content_Panel.SetActive(false);
                 break;
             case Panel.Message:
-                if (day == 0)
+                if (day == 0 || day == 2)
                 {
                     Message0_Panel.SetActive(false);
                 }
@@ -433,11 +450,11 @@ public class PanelManager : MonoBehaviour
                 Calling_Panel.SetActive(true);
                 break;
             case Panel.Note:
-                if (day == 0)
+                if (day == 0 || day == 1)
                 {
                     Note0_Panel.SetActive(true);
                 }
-                else if (day == 1)
+                else if (day == 2)
                 {
                     Note1_Panel.SetActive(true);
                 }
@@ -446,7 +463,7 @@ public class PanelManager : MonoBehaviour
                 Note_Content_Panel.SetActive(true);
                 break;
             case Panel.Message:
-                if (day == 0)
+                if (day == 0 || day == 2)
                 {
                     Message0_Panel.SetActive(true);
                 }
@@ -456,6 +473,7 @@ public class PanelManager : MonoBehaviour
                 }
                 break;
             case Panel.Main:
+                
                 break;
         }
     }

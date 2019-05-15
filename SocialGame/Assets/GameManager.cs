@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private bool FirstEmailFlag = true;
     private bool GDCEmailFlag = true;
     private bool EmailBackFlag = true;
+    private bool NoteFlag = true;
     
 
     public GameObject InstaTutor;
@@ -30,8 +31,10 @@ public class GameManager : MonoBehaviour
     public GameObject BackTutor;
     public GameObject EmailTutor;
     public GameObject GDCEmailTutor;
+    public GameObject NoteTutor;
     public Animation InstaNotification;
     public Animation EmailNotification;
+    public Animation GrouptalkNotification;
     public GameObject SlideNotification;
     //public GameObject EmailBackTutor;
     // Start is called before the first frame update
@@ -126,5 +129,27 @@ public class GameManager : MonoBehaviour
             //Debug.Log("Click GDC Email.");
             BackTutor.GetComponent<UIParticleSystem>().Restart();            
         }
+    }
+
+    public void ClickNote()
+    {
+        if (NoteFlag)
+        {
+            NoteTutor.SetActive(false);
+            NoteFlag = false;
+        }
+    }
+
+    public void ShowNoteTutor()
+    {
+        if (NoteFlag)
+        {
+            NoteTutor.SetActive(true);
+        }
+    }
+
+    public void ShowGrouptalkNotification()
+    {
+        GrouptalkNotification.Play();
     }
 }
