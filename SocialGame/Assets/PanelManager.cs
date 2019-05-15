@@ -33,7 +33,8 @@ public class PanelManager : MonoBehaviour
         LockScreen,
         Note,
         NoteContent,
-        Message
+        Message,
+        Secret
     }
     FMOD.Studio.EventInstance BGM;
     FMOD.Studio.EventInstance Ringtone;
@@ -51,6 +52,9 @@ public class PanelManager : MonoBehaviour
     public GameObject Message1_Panel;
     public GameObject Note_Content_Panel;
     public GameObject Insta_Content_Second;
+    public GameObject Secret_Panel;
+    public GameObject Secret_App;
+    public GameObject ReportEmail_Panel;
 
     public GameObject LockScreenClock;
 
@@ -68,6 +72,7 @@ public class PanelManager : MonoBehaviour
     private float CallingTimer = 0;
     private bool MessageFlag = false;
     private float MessageTimer = 0;
+    private bool ReportMailFlag = false;
     private Stack<Panel> panelStack = new Stack<Panel>();
     // Start is called before the first frame update
     void Start()
@@ -83,6 +88,7 @@ public class PanelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("day: " + day);
         //Debug.Log("PEEK: " + panelStack.Peek());
         if (keyDownFlag)
         {
@@ -296,6 +302,9 @@ public class PanelManager : MonoBehaviour
             case Panel.NoteContent:
                 PopPanel();
                 break;
+            case Panel.Secret:
+                PopPanel();
+                break;
         }
         //Debug.Log("stack.peek(): " + panelStack.Peek());
     }
@@ -413,7 +422,13 @@ public class PanelManager : MonoBehaviour
         transform.GetComponent<CanvasGroup>().interactable = true;
         MainSceneCamera.SetActive(true);
         SceneManager.UnloadSceneAsync("Ruby");
+        Secret_App.SetActive(true);
         day++;
+    }
+
+    public void ReportSucceed()
+    {
+        ReportMailFlag = true;
     }
 
     private void PushNewPanel(Panel newPanel)
@@ -438,7 +453,14 @@ public class PanelManager : MonoBehaviour
                 Browse_Panel.SetActive(false);
                 break;
             case Panel.EmailContent:
-                Email_Content.SetActive(false);
+                if (ReportMailFlag)
+                {
+                    ReportEmail_Panel.SetActive(false);
+                }
+                else
+                {
+                    Email_Content.SetActive(false);
+                }
                 break;
             case Panel.EmailContentGDC:
                 Email_Content_GDC.SetActive(false);
@@ -485,7 +507,10 @@ public class PanelManager : MonoBehaviour
                 {
                     Message1_Panel.SetActive(false);
                 }
-                break;            
+                break;
+            case Panel.Secret:
+                Secret_Panel.SetActive(false);
+                break;
             case Panel.Main:
                 break;
         }
@@ -499,7 +524,15 @@ public class PanelManager : MonoBehaviour
                 Browse_Panel.SetActive(true);
                 break;
             case Panel.EmailContent:
-                Email_Content.SetActive(true);
+                if (ReportMailFlag)
+                {
+                    ReportEmail_Panel.SetActive(true);
+                }
+                else
+                {
+                    Email_Content.SetActive(true);
+                }
+                
                 break;
             case Panel.EmailContentGDC:
                 Email_Content_GDC.SetActive(true);
@@ -561,6 +594,14 @@ public class PanelManager : MonoBehaviour
                 {
                     GameManager.Instance.ShowInstaVRNotification();
                 }
+                if (ReportMailFlag)
+                {
+                    GameManager.Instance.ShowReportMailNotification();
+                }
+                break;
+            case Panel.Secret:
+                Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!");
+                Secret_Panel.SetActive(true);
                 break;
         }
     }
