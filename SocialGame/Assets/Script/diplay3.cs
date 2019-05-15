@@ -56,6 +56,11 @@ public class diplay3 : MonoBehaviour
                         k = new Vector3(this.transform.position.x, this.transform.position.y + 1.7f, this.transform.position.z);
                         move = true;
                     }
+                    else if (flag >= 4 && this.name == "Truth")
+                    {
+                        k = new Vector3(this.transform.position.x, this.transform.position.y + 1.7f, this.transform.position.z);
+                        move = true;
+                    }
                     else if (flag >= 3 && this.name == "tex")
                     {
                         k = new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
