@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class timerun : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int flag;
     public string m;
     public char[] arr;
     private float curtime;
@@ -13,6 +14,7 @@ public class timerun : MonoBehaviour
     void Start()
     {
         arr = this.GetComponent<Text>().text.ToCharArray();
+        flag = 1;
         end = true;
     }
 
@@ -53,8 +55,16 @@ public class timerun : MonoBehaviour
             }
         }
         m = new string(arr);
+        if (m == "23:59")
+        {
+            m = "00:00";
+        }
         this.GetComponent<Text>().text = m;
-        if (m == "21:00")
+        if (m == "21:00"&&flag==1)
+        {
+            end = true;
+        }
+        else if(m == "9:30" && flag == 1)
         {
             end = true;
         }
