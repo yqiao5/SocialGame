@@ -59,4 +59,12 @@ public class timerun : MonoBehaviour
             end = true;
         }
     }
+
+    public void Unlock()
+    {
+        if (end)
+        {
+            PanelManager.Instance.PopPanel();
+        }
+    }
 }
