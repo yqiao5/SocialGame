@@ -9,6 +9,7 @@ public class timerun : MonoBehaviour
     public int flag;
     public string m;
     public char[] arr;
+    public int a;
     private float curtime;
     public bool end = false;
     void Start()
@@ -55,16 +56,19 @@ public class timerun : MonoBehaviour
             }
         }
         m = new string(arr);
-        if (m >= "23:57")
+        if (arr[0]=='2'&&a==0)
         {
             m = "00:00";
+            a = 1;
+            this.GetComponent<Text>().text = m;
+            arr = this.GetComponent<Text>().text.ToCharArray();
         }
         this.GetComponent<Text>().text = m;
         if (m == "21:00"&&flag==1)
         {
             end = true;
         }
-        else if(m == "9:30" && flag == 1)
+        else if(m == "09:30" && flag == 2)
         {
             end = true;
         }
