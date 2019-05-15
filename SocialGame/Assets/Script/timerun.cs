@@ -13,6 +13,7 @@ public class timerun : MonoBehaviour
     void Start()
     {
         arr = this.GetComponent<Text>().text.ToCharArray();
+        end = true;
     }
 
     // Update is called once per frame
