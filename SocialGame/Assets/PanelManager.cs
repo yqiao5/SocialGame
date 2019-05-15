@@ -50,6 +50,7 @@ public class PanelManager : MonoBehaviour
     public GameObject Message0_Panel;
     public GameObject Message1_Panel;
     public GameObject Note_Content_Panel;
+    public GameObject Insta_Content_Second;
 
     public GameObject LockScreenClock;
 
@@ -57,7 +58,7 @@ public class PanelManager : MonoBehaviour
     private Panel tempPanel = Panel.Main;
     //private Vector2 MouseUpPosition;
     //private Vector2 MouseDownPosition;
-    private int day = 0;
+    public int day = 0;
     private Vector2 MouseFirstPosition;
     private Vector2 MouseSecondPosition;
     private bool keyDownFlag = false;
@@ -82,6 +83,7 @@ public class PanelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("Day: " + day);
         if (keyDownFlag)
         {
             float dis = MouseSecondPosition.y - MouseFirstPosition.y;
@@ -94,7 +96,8 @@ public class PanelManager : MonoBehaviour
                 if(limit > -1790)
                 {
                     limit = -1790;
-                    GameManager.Instance.SlideInstaContent();
+                    GameManager.Instance.SlideInstaMain();
+                    
                 }else if (limit < -4310)
                 {
                     limit = -4310;
@@ -102,20 +105,35 @@ public class PanelManager : MonoBehaviour
                 Insta_Content.transform.position = new Vector3(pp.x, limit, pp.z);
                 //Debug.Log("Temp Y: " + Insta_Content.transform.position.y);
             }
-            if(panelStack.Peek() == Panel.InstaMain)
+            if(panelStack.Peek() == Panel.InstaMain && day != 4)
             {
                 Vector3 pp = Insta_Content_Main.transform.position;
                 float limit = pp.y + dis;
                 if (limit > -3150)
                 {
                     limit = -3150;
-                    GameManager.Instance.SlideInstaMain();
+                    GameManager.Instance.SlideInstaContent();
                 }
                 else if (limit < -4300)
                 {
                     limit = -4300;
                 }
                 Insta_Content_Main.transform.position = new Vector3(pp.x, limit, pp.z);
+            }
+            if (panelStack.Peek() == Panel.InstaMain && day == 4)
+            {
+                Vector3 pp = Insta_Content_Second.transform.position;
+                float limit = pp.y + dis;
+                if (limit > -3180)
+                {
+                    limit = -3180;
+                    //GameManager.Instance.SlideInstaMain();
+                }
+                else if (limit < -4310)
+                {
+                    limit = -4310;
+                }
+                Insta_Content_Second.transform.position = new Vector3(pp.x, limit, pp.z);
             }
         }
 
@@ -189,13 +207,13 @@ public class PanelManager : MonoBehaviour
         PushNewPanel(panel);
         switch (panel)
         {
-            case Panel.Main:
-                
+            case Panel.Main:                
                 break;
             case Panel.InstaContent:
-                GameManager.Instance.ClickInsta();
+                
                 break;
             case Panel.InstaMain:
+                GameManager.Instance.ClickInsta();
                 break;
             case Panel.EmailContent:
                 GameManager.Instance.ClickEmail();
@@ -209,6 +227,12 @@ public class PanelManager : MonoBehaviour
                 if(day == 2)
                 {
                     GameManager.Instance.ClickNote();
+                }
+                break;
+            case Panel.Message:
+                if(day == 3)
+                {
+                    ShowGrouptalk();
                 }
                 break;
         }
@@ -283,7 +307,7 @@ public class PanelManager : MonoBehaviour
             //panelStack.Push(Panel.InstaMain);
             PopPanel();
             PushNewPanel(Panel.InstaMain);
-            GameManager.Instance.ClickInstaMain();
+            
         }
     }
 
@@ -300,6 +324,7 @@ public class PanelManager : MonoBehaviour
             //panelStack.Push(Panel.InstaContent);
             PopPanel();
             PushNewPanel(Panel.InstaContent);
+            GameManager.Instance.ClickInstaMain();
         }
     }
     
@@ -347,6 +372,25 @@ public class PanelManager : MonoBehaviour
         MessageFlag = true;
     }
 
+    public void ShowGrouptalk()
+    {
+        SceneManager.LoadScene("GroupTalk", LoadSceneMode.Additive);
+        //PopPanel();
+        transform.GetComponent<CanvasGroup>().alpha = 0;
+        transform.GetComponent<CanvasGroup>().interactable = false;
+        MainSceneCamera.SetActive(false);
+        //BGM.setParameterByName("BGM", 0.8f);
+    }
+
+    public void EndTalk()
+    {
+        transform.GetComponent<CanvasGroup>().alpha = 1;
+        transform.GetComponent<CanvasGroup>().interactable = true;
+        MainSceneCamera.SetActive(true);
+        SceneManager.UnloadSceneAsync("GroupTalk");
+        day++;
+    }
+
     private void PushNewPanel(Panel newPanel)
     {
         HidePanel(panelStack.Peek());
@@ -379,7 +423,14 @@ public class PanelManager : MonoBehaviour
                 Insta_bg.SetActive(false);
                 break;
             case Panel.InstaMain:
-                Insta_Content_Main.SetActive(false);
+                if (day == 4)
+                {
+                    Insta_Content_Second.SetActive(false);
+                }
+                else
+                {
+                    Insta_Content_Main.SetActive(false);
+                }                
                 Insta_bg.SetActive(false);
                 break;
             case Panel.Calling:
@@ -392,7 +443,7 @@ public class PanelManager : MonoBehaviour
                 if(day == 0 || day == 1)
                 {
                     Note0_Panel.SetActive(false);
-                }else if(day ==2)
+                }else if(day == 2 || day == 3 || day == 4)
                 {
                     Note1_Panel.SetActive(false);
                 }                
@@ -401,7 +452,7 @@ public class PanelManager : MonoBehaviour
                 Note_Content_Panel.SetActive(false);
                 break;
             case Panel.Message:
-                if (day == 0 || day == 2)
+                if (day == 0 || day == 2 || day == 4)
                 {
                     Message0_Panel.SetActive(false);
                 }
@@ -433,7 +484,14 @@ public class PanelManager : MonoBehaviour
                 Insta_bg.SetActive(true);
                 break;
             case Panel.InstaMain:
-                Insta_Content_Main.SetActive(true);
+                if(day == 4)
+                {
+                    Insta_Content_Second.SetActive(true);
+                }
+                else
+                {
+                    Insta_Content_Main.SetActive(true);
+                }                
                 Insta_bg.SetActive(true);
                 break;
             case Panel.LockScreen:
@@ -447,7 +505,7 @@ public class PanelManager : MonoBehaviour
                 {
                     Note0_Panel.SetActive(true);
                 }
-                else if (day == 2)
+                else if (day == 2 || day == 3 || day == 4)
                 {
                     Note1_Panel.SetActive(true);
                 }
@@ -456,7 +514,7 @@ public class PanelManager : MonoBehaviour
                 Note_Content_Panel.SetActive(true);
                 break;
             case Panel.Message:
-                if (day == 0 || day == 2)
+                if (day == 0 || day == 2 || day == 4)
                 {
                     Message0_Panel.SetActive(true);
                 }
@@ -473,6 +531,10 @@ public class PanelManager : MonoBehaviour
                 if (day == 3)
                 {
                     GameManager.Instance.ShowGrouptalkNotification();
+                }
+                if(day == 4)
+                {
+                    GameManager.Instance.ShowInstaVRNotification();
                 }
                 break;
         }
