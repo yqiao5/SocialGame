@@ -38,6 +38,14 @@ public class click5 : MonoBehaviour
                     {
                         PanelManager.Instance.EndRuby();
                     }
+                    else if (this.tag == "ch"&&this.name=="p1")
+                    {
+                        
+                    }
+                    else if (this.tag == "ch" && this.name == "p2")
+                    {
+
+                    }
                 }
             }
 

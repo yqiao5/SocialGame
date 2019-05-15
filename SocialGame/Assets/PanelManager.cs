@@ -88,7 +88,7 @@ public class PanelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("day: " + day);
+        //Debug.Log("day: " + day);
         //Debug.Log("PEEK: " + panelStack.Peek());
         if (keyDownFlag)
         {
@@ -210,7 +210,7 @@ public class PanelManager : MonoBehaviour
 
     public void ShowPanel(string newPanel)
     {
-        Debug.Log("Click ShowPanel!");
+        //Debug.Log("Click ShowPanel!");
         Panel panel = (Panel)Enum.Parse(typeof(Panel), newPanel);
         PushNewPanel(panel);
         switch (panel)
@@ -606,7 +606,7 @@ public class PanelManager : MonoBehaviour
                 }
                 break;
             case Panel.Secret:
-                Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!");
+                //Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!");
                 Secret_Panel.SetActive(true);
                 break;
         }
