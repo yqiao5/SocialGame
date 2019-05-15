@@ -621,7 +621,6 @@ public class PanelManager : MonoBehaviour
             case Panel.Secret:
                 Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!");
                 Secret_Panel.SetActive(true);
-                BGM.setParameterByName("BGM", 85f);
                 break;
         }
     }
