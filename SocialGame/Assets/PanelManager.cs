@@ -209,6 +209,7 @@ public class PanelManager : MonoBehaviour
 
     public void ShowPanel(string newPanel)
     {
+        Debug.Log("Click ShowPanel!");
         Panel panel = (Panel)Enum.Parse(typeof(Panel), newPanel);
         PushNewPanel(panel);
         switch (panel)
