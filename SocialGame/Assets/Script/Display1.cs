@@ -86,9 +86,13 @@ public class Display1 : MonoBehaviour
         }
         if(m>= dias.Count-1&&this.name=="cho1"&&this.name=="cho2")
         {
-            GameObject.Find("p1").GetComponent<click5>().end = true;
-            GameObject.Find("p2").GetComponent<click5>().end = true;
-            GameObject.Find("p3").GetComponent<click5>().end = true;
+            if (this.name == "cho1" || this.name == "cho2")
+            {
+                GameObject.Find("p1").GetComponent<click5>().end = true;
+                GameObject.Find("p2").GetComponent<click5>().end = true;
+                GameObject.Find("p3").GetComponent<click5>().end = true;
+
+            }
         }
     }
 }
