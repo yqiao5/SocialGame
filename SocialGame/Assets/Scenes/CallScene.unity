@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 496814980}
   m_Layer: 0
   m_Name: p1
-  m_TagString: Untagged
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66568828fab5434b877a37ed4d36310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  end: 0
 --- !u!61 &496814981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -323,7 +324,7 @@ GameObject:
   - component: {fileID: 1311929837}
   m_Layer: 0
   m_Name: p2
-  m_TagString: Untagged
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66568828fab5434b877a37ed4d36310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  end: 0
 --- !u!61 &1311929838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -378,6 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66568828fab5434b877a37ed4d36310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  end: 0
 --- !u!4 &1311929840
 Transform:
   m_ObjectHideFlags: 0
@@ -768,7 +771,7 @@ GameObject:
   - component: {fileID: 2008364336}
   m_Layer: 0
   m_Name: p3
-  m_TagString: Untagged
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -785,6 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66568828fab5434b877a37ed4d36310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  end: 0
 --- !u!61 &2008364337
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -823,6 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66568828fab5434b877a37ed4d36310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  end: 0
 --- !u!4 &2008364339
 Transform:
   m_ObjectHideFlags: 0
@@ -934,6 +939,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: phone
       objectReference: {fileID: 0}
+    - target: {fileID: 292499941674360402, guid: e20f8356005eeb24bb16f8758927d8c6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 292499940891106144, guid: e20f8356005eeb24bb16f8758927d8c6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 7982321941027364587, guid: e20f8356005eeb24bb16f8758927d8c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1004,16 +1019,6 @@ PrefabInstance:
       propertyPath: dias.Array.data[4]
       value: 
       objectReference: {fileID: 1162832509}
-    - target: {fileID: 292499940891106144, guid: e20f8356005eeb24bb16f8758927d8c6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 292499941674360402, guid: e20f8356005eeb24bb16f8758927d8c6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.05
-      objectReference: {fileID: 0}
     - target: {fileID: 292499941151741026, guid: e20f8356005eeb24bb16f8758927d8c6,
         type: 3}
       propertyPath: m_LocalPosition.y

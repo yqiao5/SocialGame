@@ -22,7 +22,13 @@ public class click5 : MonoBehaviour
             {
                 if (end == true)
                 {
-                    PanelManager.Instance.EndCall();
+                    if (this.tag == "phone"){
+                        PanelManager.Instance.EndCall();
+                    }
+                    else if (this.tag == "text")
+                    {
+                        PanelManager.Instance.EndMessage();
+                    }
                 }
             }
 
