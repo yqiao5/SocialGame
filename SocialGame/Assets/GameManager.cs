@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
     {
         if (InstaVRNotiFlag)
         {
-            Debug.Log("VRNOTI!");
+            //Debug.Log("VRNOTI!");
             InstaVRNotification.Play();
             InstaVRNotiFlag = false;
         }
