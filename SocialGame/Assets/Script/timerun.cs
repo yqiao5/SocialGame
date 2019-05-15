@@ -56,7 +56,7 @@ public class timerun : MonoBehaviour
             }
         }
         m = new string(arr);
-        if (arr[0] == '2' && a == 0&&flag==2)
+        if (arr[0] == '2' && a == 0&&flag==2&& arr[1] == '3')
         {
             m = "00:00";
             a = 1;
