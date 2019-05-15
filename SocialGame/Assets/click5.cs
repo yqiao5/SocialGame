@@ -28,7 +28,7 @@ public class click5 : MonoBehaviour
                     }
                     else if (this.tag == "text")
                     {
-                        //PanelManager.Instance.EndMessage();
+                        PanelManager.Instance.EndMessage();
                     }
                 }
             }

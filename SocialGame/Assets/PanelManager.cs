@@ -51,6 +51,8 @@ public class PanelManager : MonoBehaviour
     public GameObject Message1_Panel;
     public GameObject Note_Content_Panel;
 
+    public GameObject LockScreenClock;
+
     public GameObject MainSceneCamera;
     private Panel tempPanel = Panel.Main;
     //private Vector2 MouseUpPosition;
@@ -63,6 +65,8 @@ public class PanelManager : MonoBehaviour
     private Vector3 InstaPositionOnDown;
     private bool CallingFlag = false;
     private float CallingTimer = 0;
+    private bool MessageFlag = false;
+    private float MessageTimer = 0;
     private Stack<Panel> panelStack = new Stack<Panel>();
     // Start is called before the first frame update
     void Start()
@@ -149,14 +153,30 @@ public class PanelManager : MonoBehaviour
         if (CallingFlag)
         {
             CallingTimer += Time.deltaTime;
-            Debug.Log("In Calling");
+            //Debug.Log("In Calling");
             if (CallingTimer > 3)
             {
                 CallingFlag = false;
+                CallingTimer = 0;
                 //Calling_Panel.SetActive(true);
                 PushNewPanel(Panel.Calling);
                 BGM.setParameterByName("BGM", 0.5f);
                 
+            }
+        }
+
+        if (MessageFlag)
+        {
+            MessageTimer += Time.deltaTime;
+            //Debug.Log("In Calling");
+            if (MessageTimer > 3)
+            {
+                MessageFlag = false;
+                MessageTimer = 0;
+                //Calling_Panel.SetActive(true);
+                PushNewPanel(Panel.LockScreen);
+                LockScreenClock.GetComponent<timerun>().SetEndFlag();
+                //BGM.setParameterByName("BGM", 0.5f);
             }
         }
     }
@@ -306,6 +326,15 @@ public class PanelManager : MonoBehaviour
         transform.GetComponent<CanvasGroup>().interactable = false;
         MainSceneCamera.SetActive(false);
         //BGM.setParameterByName("BGM", 0.8f);
+    }
+
+    public void EndMessage()
+    {
+        transform.GetComponent<CanvasGroup>().alpha = 1;
+        transform.GetComponent<CanvasGroup>().interactable = true;
+        MainSceneCamera.SetActive(true);
+        SceneManager.UnloadSceneAsync("TextScene");
+        MessageFlag = true;
     }
 
     private void PushNewPanel(Panel newPanel)
