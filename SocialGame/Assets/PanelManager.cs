@@ -284,6 +284,7 @@ public class PanelManager : MonoBehaviour
         SceneManager.LoadScene("CallScene",LoadSceneMode.Additive);
         PopPanel();
         transform.GetComponent<CanvasGroup>().alpha = 0;
+        transform.GetComponent<CanvasGroup>().interactable = false;
         MainSceneCamera.SetActive(false);        
         BGM.setParameterByName("BGM", 0.8f);
     }
@@ -292,6 +293,7 @@ public class PanelManager : MonoBehaviour
     {
         day = 1;
         transform.GetComponent<CanvasGroup>().alpha = 1;
+        transform.GetComponent<CanvasGroup>().interactable = true;
         MainSceneCamera.SetActive(true);
         SceneManager.UnloadSceneAsync("CallScene");
     }
@@ -301,6 +303,7 @@ public class PanelManager : MonoBehaviour
         SceneManager.LoadScene("TextScene", LoadSceneMode.Additive);
         //PopPanel();
         transform.GetComponent<CanvasGroup>().alpha = 0;
+        transform.GetComponent<CanvasGroup>().interactable = false;
         MainSceneCamera.SetActive(false);
         //BGM.setParameterByName("BGM", 0.8f);
     }
