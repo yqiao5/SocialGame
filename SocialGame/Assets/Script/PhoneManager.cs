@@ -16,7 +16,7 @@ public class PhoneManager : MonoBehaviour
     void Start()
     {
         dan = 0;
-        for(int i = 0; i <= 13; i++)
+        for(int i = 0; i <= dias.Count-1; i++)
         {
             dias[i].SetActive(false);
         }
@@ -44,7 +44,7 @@ public class PhoneManager : MonoBehaviour
         }
         if (Time.time - curtime > 1.65&&flag<=14)
         {
-            if (flag <= 13)
+            if (flag <= dias.Count - 1)
             {
                 dias[flag].SetActive(true);
             }

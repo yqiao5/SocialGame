@@ -23,11 +23,12 @@ public class click5 : MonoBehaviour
                 if (end == true)
                 {
                     if (this.tag == "phone"){
+                        Debug.Log("mmm");
                         PanelManager.Instance.EndCall();
                     }
                     else if (this.tag == "text")
                     {
-                        PanelManager.Instance.EndMessage();
+                        //PanelManager.Instance.EndMessage();
                     }
                 }
             }
