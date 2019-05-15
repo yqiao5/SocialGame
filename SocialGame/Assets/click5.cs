@@ -19,7 +19,7 @@ public class click5 : MonoBehaviour
             RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             foreach (RaycastHit2D hit in hits)
             {
-                
+                PanelManager.Instance.EndCall();
             }
 
         }

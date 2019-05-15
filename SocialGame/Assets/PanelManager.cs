@@ -290,6 +290,15 @@ public class PanelManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("CallScene");
     }
 
+    public void ClickMessage()
+    {
+        SceneManager.LoadScene("TextScene", LoadSceneMode.Additive);
+        //PopPanel();
+        transform.GetComponent<CanvasGroup>().alpha = 0;
+        MainSceneCamera.SetActive(false);
+        //BGM.setParameterByName("BGM", 0.8f);
+    }
+
     private void PushNewPanel(Panel newPanel)
     {
         HidePanel(panelStack.Peek());
