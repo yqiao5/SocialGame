@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TextScene.unity
     guid: ebabf56c4f8a2c848b0ea398f48389ba
+  - enabled: 1
+    path: Assets/Scenes/GroupTalk.unity
+    guid: b446686c1ce6c6a4698305c0f824d3d1
   m_configObjects: {}
