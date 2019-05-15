@@ -41,7 +41,10 @@ public class diplay3 : MonoBehaviour
                 if (m[flag].GetComponent<nextscentence>().end == true)
                 {
                     flag++;
-                    m[flag].SetActive(true);
+                    if(flag<= m.Length - 1)
+                    {
+                        m[flag].SetActive(true);
+                    }
                     if (flag <= m.Length - 1)
                     {
                             m[flag].SetActive(true);

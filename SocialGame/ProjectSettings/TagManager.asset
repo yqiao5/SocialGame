@@ -8,6 +8,7 @@ TagManager:
   - phone
   - group
   - truth
+  - ch
   layers:
   - Default
   - TransparentFX
