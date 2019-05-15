@@ -34,6 +34,10 @@ public class click5 : MonoBehaviour
                     {
                         PanelManager.Instance.EndTalk();
                     }
+                    else if (this.tag == "truth")
+                    {
+                        PanelManager.Instance.EndRuby();
+                    }
                 }
             }
 
