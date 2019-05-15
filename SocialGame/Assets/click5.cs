@@ -5,6 +5,7 @@ using UnityEngine;
 public class click5 : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool end=false;
     void Start()
     {
 
@@ -19,7 +20,10 @@ public class click5 : MonoBehaviour
             RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             foreach (RaycastHit2D hit in hits)
             {
-                PanelManager.Instance.EndCall();
+                if (end == true)
+                {
+                    PanelManager.Instance.EndCall();
+                }
             }
 
         }

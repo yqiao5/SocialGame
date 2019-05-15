@@ -46,19 +46,29 @@ public class diplay3 : MonoBehaviour
                     {
                             m[flag].SetActive(true);
                     }
-                    if (flag >= 1&&flag<=1)
+                    if (flag >= 1&&flag<=1&&this.name=="Talk")
                     {
                         k = new Vector3(this.transform.position.x, this.transform.position.y + 2.7f, this.transform.position.z);
                         move = true;
                     }
-                    else if (flag >= 2)
+                    else if (flag >= 2&&this.name=="Talk")
                     {
                         k = new Vector3(this.transform.position.x, this.transform.position.y + 1.7f, this.transform.position.z);
+                        move = true;
+                    }
+                    else if (flag >= 3 && this.name == "tex")
+                    {
+                        k = new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
                         move = true;
                     }
                 }
             }
             this.transform.position = Vector3.MoveTowards(this.transform.position, k, 2.5f * Time.deltaTime);
+        }
+        if(flag>= m.Length - 1)
+        {
+            GameObject.Find("p1").GetComponent<click5>().end = true;
+            GameObject.Find("p2").GetComponent<click5>().end = true;
         }
     }
     IEnumerator waitAnimation3()

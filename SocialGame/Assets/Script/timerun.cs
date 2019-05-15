@@ -19,11 +19,11 @@ public class timerun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (curtime == 0)
+        if (curtime == 0&&end==false)
         {
             curtime = Time.time;
         }
-        if (Time.time - curtime >= 0.2&&end==false)
+        if (Time.time - curtime >= 0.02&&end==false)
         {
             if (arr[4] == '9')
             {
