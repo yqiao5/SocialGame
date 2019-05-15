@@ -434,11 +434,22 @@ public class PanelManager : MonoBehaviour
         ReportMailFlag = true;
     }
 
+    public void FinalScene()
+    {
+        Debug.Log("In Final Scene.");
+        SceneManager.LoadScene("End");
+    }
+
     private void PushNewPanel(Panel newPanel)
     {
         HidePanel(panelStack.Peek());
         ShowPanel(newPanel);
         panelStack.Push(newPanel);
+    }
+
+    public void StartLockScreenTutor()
+    {
+        LockScreen_Panel.GetComponent<LockScreen>().StartTutor();
     }
 
     public void PopPanel()
