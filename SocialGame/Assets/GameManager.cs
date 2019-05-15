@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private bool NoteFlag = true;
     private bool GroupNotiFlag = true;
     private bool InstaVRNotiFlag = true;
+    private bool RMessageNotiFlag = true;
 
 
     public GameObject InstaTutor;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     public Animation EmailNotification;
     public Animation GrouptalkNotification;
     public Animation InstaVRNotification;
+    public Animation RMessageNotification;
     public GameObject SlideNotification;
     //public GameObject EmailBackTutor;
     // Start is called before the first frame update
@@ -167,6 +169,16 @@ public class GameManager : MonoBehaviour
             Debug.Log("VRNOTI!");
             InstaVRNotification.Play();
             InstaVRNotiFlag = false;
+        }
+    }
+
+    public void ShowRMessageNotification()
+    {
+        if (RMessageNotiFlag)
+        {
+            //Debug.Log("VRNOTI!");
+            RMessageNotification.Play();
+            RMessageNotiFlag = false;
         }
     }
 }

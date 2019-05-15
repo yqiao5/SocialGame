@@ -83,7 +83,7 @@ public class PanelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Day: " + day);
+        //Debug.Log("PEEK: " + panelStack.Peek());
         if (keyDownFlag)
         {
             float dis = MouseSecondPosition.y - MouseFirstPosition.y;
@@ -234,6 +234,10 @@ public class PanelManager : MonoBehaviour
                 {
                     ShowGrouptalk();
                 }
+                if(day == 5)
+                {
+                    ShowRMessage();
+                }
                 break;
         }
     }
@@ -246,20 +250,22 @@ public class PanelManager : MonoBehaviour
             case Panel.Main:
                 break;
             case Panel.InstaContent:
-                //Insta_bg.SetActive(false);
-                //Insta_Content.SetActive(false);
-                //tempPanel = Panel.Main;
-                //panelStack.Pop();
                 PopPanel();
+                if(day == 4)
+                {
+                    GameManager.Instance.ShowRMessageNotification();
+                    day++;
+                }
                 GameManager.Instance.ClickBack();
                 break;
             case Panel.InstaMain:
-                //Insta_bg.SetActive(false);
-                //Insta_Content_Main.SetActive(false);
-                //tempPanel = Panel.Main;
-                //panelStack.Pop();
                 PopPanel();
                 GameManager.Instance.ClickBack();
+                if (day == 4)
+                {
+                    GameManager.Instance.ShowRMessageNotification();
+                    day++;
+                }
                 break;
             case Panel.EmailContentGDC:
                 //Email_Content_GDC.SetActive(false);
@@ -291,7 +297,7 @@ public class PanelManager : MonoBehaviour
                 PopPanel();
                 break;
         }
-        Debug.Log("stack.peek(): " + panelStack.Peek());
+        //Debug.Log("stack.peek(): " + panelStack.Peek());
     }
 
     public void InstaMainButtonClick()
@@ -391,6 +397,25 @@ public class PanelManager : MonoBehaviour
         day++;
     }
 
+    public void ShowRMessage()
+    {
+        SceneManager.LoadScene("Ruby", LoadSceneMode.Additive);
+        //PopPanel();
+        transform.GetComponent<CanvasGroup>().alpha = 0;
+        transform.GetComponent<CanvasGroup>().interactable = false;
+        MainSceneCamera.SetActive(false);
+        //BGM.setParameterByName("BGM", 0.8f);
+    }
+
+    public void EndRuby()
+    {
+        transform.GetComponent<CanvasGroup>().alpha = 1;
+        transform.GetComponent<CanvasGroup>().interactable = true;
+        MainSceneCamera.SetActive(true);
+        SceneManager.UnloadSceneAsync("Ruby");
+        day++;
+    }
+
     private void PushNewPanel(Panel newPanel)
     {
         HidePanel(panelStack.Peek());
@@ -443,7 +468,7 @@ public class PanelManager : MonoBehaviour
                 if(day == 0 || day == 1)
                 {
                     Note0_Panel.SetActive(false);
-                }else if(day == 2 || day == 3 || day == 4)
+                }else if(day == 2 || day == 3 || day == 4 || day == 5)
                 {
                     Note1_Panel.SetActive(false);
                 }                
@@ -505,7 +530,7 @@ public class PanelManager : MonoBehaviour
                 {
                     Note0_Panel.SetActive(true);
                 }
-                else if (day == 2 || day == 3 || day == 4)
+                else if (day == 2 || day == 3 || day == 4 || day == 5)
                 {
                     Note1_Panel.SetActive(true);
                 }
