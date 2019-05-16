@@ -240,6 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f21d56391aa594193eb14869018e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curShader: {fileID: 0}
+  grayScaleAmount: 1
 --- !u!1 &71462616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5116015241735211388, guid: 561fa0fa09e9f1841be6ca33c5e1c491,
@@ -1563,7 +1565,7 @@ GameObject:
   - component: {fileID: 957023144}
   m_Layer: 0
   m_Name: p2
-  m_TagString: group
+  m_TagString: P2Group
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1581,6 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &957023145
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2767,7 +2770,7 @@ GameObject:
   - component: {fileID: 1935192220}
   m_Layer: 0
   m_Name: p1
-  m_TagString: group
+  m_TagString: P1Group
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2785,6 +2788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &1935192221
 BoxCollider2D:
   m_ObjectHideFlags: 0

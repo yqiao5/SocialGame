@@ -21,22 +21,33 @@ public class click5 : MonoBehaviour
             RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             foreach (RaycastHit2D hit in hits)
             {
+                
                 if (end == true)
                 {
-                    if (this.tag == "phone"){
-                        Debug.Log("mmm");
+                    if ((hit.collider.gameObject.tag == "P1Phone" && this.name == "p1") || 
+                        (hit.collider.gameObject.tag == "P2Phone" && this.name == "p2") ||
+                        (hit.collider.gameObject.tag == "P3Phone" && this.name == "p3"))
+                    {
+                        Debug.Log("In Phone");
                         PanelManager.Instance.EndCall();
                     }
-                    else if (this.tag == "text")
+                    else if ((hit.collider.gameObject.tag == "P1Text" && this.name == "p1") || 
+                        (hit.collider.gameObject.tag == "P2Text" && this.name == "p2"))
                     {
+                        Debug.Log("In Text");
                         PanelManager.Instance.EndMessage();
                     }
-                    else if (this.tag == "group")
+                    else if ((hit.collider.gameObject.tag == "P1Group" && this.name == "p1") || 
+                        (hit.collider.gameObject.tag == "P2Group" && this.name == "p2"))
                     {
+                        Debug.Log("This Tag: " + this.tag);
+                        Debug.Log("This Name: " + this.name);
                         PanelManager.Instance.EndTalk();
                     }
-                    else if (this.tag == "truth")
+                    else if ((hit.collider.gameObject.tag == "P1Truth" && this.name == "p1") ||
+                        (hit.collider.gameObject.tag == "P2Truth" && this.name == "p2"))
                     {
+                        Debug.Log("In Truth");
                         PanelManager.Instance.EndRuby();
                     }
                     else if (this.tag == "ch"&&this.name=="p1")

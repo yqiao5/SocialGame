@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 249272399}
   m_Layer: 0
   m_Name: p2
-  m_TagString: text
+  m_TagString: P2Text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &249272400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -388,7 +389,7 @@ GameObject:
   - component: {fileID: 476541984}
   m_Layer: 0
   m_Name: p1
-  m_TagString: text
+  m_TagString: P1Text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,6 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &476541985
 BoxCollider2D:
   m_ObjectHideFlags: 0

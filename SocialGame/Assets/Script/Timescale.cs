@@ -20,7 +20,7 @@ public class Timescale : MonoBehaviour
     {
         m = this.GetComponent<Text>().text;
         arr = m.ToCharArray();
-        Debug.Log(arr[4]);
+        //Debug.Log(arr[4]);
         if (start == 1)
         {
             if (curtime == 0)
@@ -36,7 +36,7 @@ public class Timescale : MonoBehaviour
                 else
                 {
                     arr[4] = (char)((int)(arr[4] + 1));
-                    Debug.Log(arr[4]);
+                    //Debug.Log(arr[4]);
                 }
                 curtime = 0;
             }

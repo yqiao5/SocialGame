@@ -9,6 +9,15 @@ TagManager:
   - group
   - truth
   - ch
+  - P1Group
+  - P2Group
+  - P1Phone
+  - P2Phone
+  - P3Phone
+  - P1Text
+  - P2Text
+  - P1Truth
+  - P2Truth
   layers:
   - Default
   - TransparentFX

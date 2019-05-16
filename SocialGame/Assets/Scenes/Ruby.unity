@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 978937177}
   m_Layer: 0
   m_Name: p1
-  m_TagString: truth
+  m_TagString: P1Truth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &978937178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1786,7 +1787,7 @@ GameObject:
   - component: {fileID: 2111487856}
   m_Layer: 0
   m_Name: p2
-  m_TagString: truth
+  m_TagString: P2Truth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1804,6 +1805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &2111487857
 BoxCollider2D:
   m_ObjectHideFlags: 0

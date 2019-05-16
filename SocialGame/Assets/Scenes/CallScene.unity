@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 496814980}
   m_Layer: 0
   m_Name: p1
-  m_TagString: phone
+  m_TagString: P1Phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &496814981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -324,7 +325,7 @@ GameObject:
   - component: {fileID: 1311929837}
   m_Layer: 0
   m_Name: p2
-  m_TagString: phone
+  m_TagString: P2Phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &1311929838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -381,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!4 &1311929840
 Transform:
   m_ObjectHideFlags: 0
@@ -771,7 +774,7 @@ GameObject:
   - component: {fileID: 2008364336}
   m_Layer: 0
   m_Name: p3
-  m_TagString: phone
+  m_TagString: P3Phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,6 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!61 &2008364337
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -828,6 +832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   end: 0
+  flag: 0
 --- !u!4 &2008364339
 Transform:
   m_ObjectHideFlags: 0
