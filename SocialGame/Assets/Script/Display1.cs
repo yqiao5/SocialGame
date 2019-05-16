@@ -84,7 +84,7 @@ public class Display1 : MonoBehaviour
                 this.transform.position = Vector3.MoveTowards(this.transform.position, a, 5 * Time.deltaTime);
             }
         }
-        if(m>= dias.Count-1&&this.name=="cho1"&&this.name=="cho2")
+        if(m>= dias.Count-1)
         {
             if (this.name == "cho1" || this.name == "cho2")
             {
